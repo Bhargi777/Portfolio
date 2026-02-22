@@ -18,7 +18,7 @@ export function Navbar() {
             <div className="container mx-auto px-4 h-16 flex items-center justify-between font-mono text-xs md:text-sm">
                 <Link href="/" className="font-bold text-accent hover:text-primary transition-colors flex items-center gap-2">
                     <span>{`[`}</span>
-                    <span className="tracking-widest">BHARGAVA_OS</span>
+                    <span className="tracking-widest">BHARGAVA</span>
                     <span>{`]`}</span>
                 </Link>
                 <div className="flex items-center gap-4 md:gap-8">
