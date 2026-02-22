@@ -38,13 +38,10 @@ export default function Hero({ data }: HeroProps) {
 
           <div className="flex flex-wrap justify-center gap-4 mt-8 animate-in slide-in-from-bottom-4 duration-1000 delay-500 fill-mode-both">
             <a
-              href={data.resumedownload || "/Bhargava_resume.pdf"} // using a fallback or defined state
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/about"
               className="group relative inline-flex items-center gap-3 font-mono text-xs md:text-sm bg-accent text-accent-foreground px-6 py-3 uppercase tracking-widest hover:bg-accent/90 transition-all shadow-lg shadow-accent/20 hover:shadow-accent/40"
             >
-              <FileText className="w-4 h-4" />
-              <span>Download Resume</span>
+              <span>Wanna know more</span>
               <div className="absolute inset-0 border border-current scale-[1.03] opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300" />
             </a>
           </div>

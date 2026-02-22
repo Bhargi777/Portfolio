@@ -34,6 +34,14 @@ export function Navbar() {
                             </Link>
                         ))}
                     </div>
+                    <a 
+                        href="/Bhargava_resume.pdf" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="font-bold text-accent border border-accent/50 px-3 py-1 text-xs hover:bg-accent hover:text-accent-foreground transition-all shadow-[0_0_8px_rgba(var(--accent),0.2)]"
+                    >
+                        RESUME
+                    </a>
                     <ThemeToggle />
                 </div>
             </div>
@@ -49,6 +57,7 @@ export function Navbar() {
                         {link.label}
                     </Link>
                 ))}
+                <a href="/Bhargava_resume.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-accent font-bold text-accent drop-shadow-[0_0_5px_rgba(var(--accent),0.5)]">RESUME</a>
             </div>
         </nav>
     )

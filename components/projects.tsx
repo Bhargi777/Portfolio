@@ -55,7 +55,7 @@ export default function Projects({ data }: ProjectsProps) {
             }
             return new Date(b.pushed_at).getTime() - new Date(a.pushed_at).getTime()
           })
-          .slice(0, 6) // Keep top 6 repos
+          // Keeping all repos to show all projects
 
         sessionStorage.setItem("github_repos", JSON.stringify(filtered))
         setRepos(filtered)
