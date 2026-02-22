@@ -18,29 +18,29 @@ interface AboutProps {
 
 export default function About({ data }: AboutProps) {
   return (
-    <section className="container mx-auto px-4 py-12" id="about">
+    <section className="container mx-auto px-4 py-8 md:py-12" id="about">
       <div className="max-w-4xl mx-auto">
-        <div className="font-mono text-accent mb-6 flex flex-col items-center">
-          <pre className="text-xs md:text-sm">╔════════════════════════════════════════════════╗</pre>
-          <pre className="text-xs md:text-sm font-bold">║ ABOUT ME ║</pre>
-          <pre className="text-xs md:text-sm">╚════════════════════════════════════════════════╝</pre>
+        <div className="font-mono text-accent mb-4 md:mb-6 flex flex-col items-center overflow-x-auto">
+          <pre className="text-[10px] md:text-xs">╔══════════════════════════════════╗</pre>
+          <pre className="text-[10px] md:text-xs font-bold">║ ABOUT ME ║</pre>
+          <pre className="text-[10px] md:text-xs">╚══════════════════════════════════╝</pre>
         </div>
 
-        <div className="border-2 border-border p-6 md:p-8 bg-card hover:border-accent transition-colors duration-300">
-          <div className="font-mono text-xs md:text-sm leading-relaxed space-y-4">
+        <div className="border-2 border-border p-4 md:p-8 bg-card hover:border-accent transition-colors duration-300">
+          <div className="font-mono text-[10px] md:text-sm leading-relaxed space-y-3 md:space-y-4">
             <p className="text-foreground">
               <span className="text-accent">{">> "}</span>
               {data.bio}
             </p>
           </div>
 
-          <div className="mt-8 pt-6 border-t border-border">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono text-xs md:text-sm">
+          <div className="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-border">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 font-mono text-[10px] md:text-sm">
               <div>
                 <span className="text-accent">email:</span>{" "}
                 <a
                   href={`mailto:${data.email}`}
-                  className="text-muted-foreground hover:text-accent transition-colors underline"
+                  className="text-muted-foreground hover:text-accent transition-colors underline break-all"
                 >
                   {data.email}
                 </a>
