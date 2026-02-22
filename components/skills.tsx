@@ -1,3 +1,5 @@
+import { MatrixText } from "./matrix-text"
+
 interface SkillsProps {
   data: {
     skills: Array<{
@@ -26,13 +28,15 @@ export default function Skills({ data }: SkillsProps) {
               <div
                 key={index}
                 style={{ animationDelay: `${index * 50}ms` }}
-                className="font-mono text-[10px] md:text-xs p-3 md:p-4 bg-background/50 border border-border/50 hover:border-accent/50 hover:bg-accent/10 hover:-translate-y-0.5 hover:shadow-sm hover:shadow-accent/10 transition-all duration-300 flex items-center justify-between gap-3 animate-in fade-in slide-in-from-bottom-2"
+                className="font-mono text-[10px] md:text-xs p-3 md:p-4 bg-background/50 border border-border/50 hover:border-accent/50 hover:bg-accent/10 hover:-translate-y-0.5 hover:shadow-sm hover:shadow-accent/10 transition-all duration-300 flex items-center justify-between gap-3 animate-in fade-in slide-in-from-bottom-2 group/skill"
               >
-                <div className="flex items-center gap-2">
-                  <span className="text-accent/60 group-hover:text-accent transition-colors">▸</span>
-                  <span className="text-foreground/90 group-hover:text-foreground transition-colors font-semibold tracking-wide">{skill.name}</span>
+                <div className="flex items-center gap-2 overflow-hidden">
+                  <span className="text-accent/60 group-hover/skill:text-accent transition-colors">▸</span>
+                  <span className="text-foreground/90 group-hover/skill:text-foreground transition-colors font-semibold tracking-wide whitespace-nowrap">
+                    <MatrixText text={skill.name} triggerOnHover={true} />
+                  </span>
                 </div>
-                <span className="text-muted-foreground/60 text-[9px] bg-background px-1.5 py-0.5 border border-border/30 rounded-full">{skill.level}</span>
+                <span className="text-muted-foreground/60 text-[9px] bg-background px-1.5 py-0.5 border border-border/30 rounded-full flex-shrink-0">{skill.level}</span>
               </div>
             ))}
           </div>

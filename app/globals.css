@@ -119,54 +119,50 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground antialiased selection:bg-accent/30 selection:text-accent-foreground;
-    /* Scanline effect */
-    background-image: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        oklch(0.65 0.2 310 / 0.03) 2px,
-        oklch(0.65 0.2 310 / 0.03) 4px
-      ), /* Vertical grid */
-      repeating-linear-gradient(
-        90deg,
-        oklch(0.65 0.2 310 / 0.15) 0px,
-        transparent 1px,
-        transparent 40px,
-        oklch(0.65 0.2 310 / 0.15) 41px
-      ), /* Horizontal grid */
-      repeating-linear-gradient(
-        180deg,
-        oklch(0.65 0.15 200 / 0.12) 0px,
-        transparent 1px,
-        transparent 40px,
-        oklch(0.65 0.15 200 / 0.12) 41px
-      ), /* Diagonal accent lines */
-      repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 80px,
-        oklch(0.7 0.16 140 / 0.08) 80px,
-        oklch(0.7 0.16 140 / 0.08) 81px
-      );
-    background-size: 100% 100%, 40px 40px, 40px 40px, 113px 113px;
+    /* Clean dark hacker background with slow animated grid */
+    background-image:
+      linear-gradient(to right, oklch(0.65 0.2 310 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, oklch(0.65 0.2 310 / 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center;
     position: relative;
+    animation: backgroundScroll 60s linear infinite;
   }
 
-  /* Add a subtle vignette effect */
+  @keyframes backgroundScroll {
+    from {
+      background-position: 0 0;
+    }
+
+    to {
+      background-position: 40px 40px;
+    }
+  }
+
+  /* Smooth vignette effect */
   body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background: radial-gradient(ellipse at center, transparent 0%, oklch(0.06 0.01 264 / 0.6) 100%);
+    background: radial-gradient(circle at center, transparent 0%, rgba(5, 5, 5, 0.95) 100%);
     pointer-events: none;
-    z-index: 1;
+    z-index: 10;
   }
 
-  /* Ensure content is above the vignette */
-  body > * {
-    position: relative;
-    z-index: 2;
+  /* subtle moving scanline */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(to bottom,
+        transparent 50%,
+        rgba(0, 0, 0, 0.2) 51%);
+    background-size: 100% 4px;
+    z-index: 11;
+    opacity: 0.3;
   }
 }

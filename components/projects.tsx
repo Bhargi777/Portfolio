@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Star, Code, Loader2 } from "lucide-react"
+import { MatrixText } from "./matrix-text"
 
 interface GithubRepo {
   id: number
@@ -42,9 +43,9 @@ export default function Projects({ data }: ProjectsProps) {
         // Fetch user repos
         const res = await fetch("https://api.github.com/users/Bhargi777/repos?per_page=100")
         if (!res.ok) throw new Error("Failed to fetch")
-        
+
         const json: GithubRepo[] = await res.json()
-        
+
         // Filter out forks and repos without descriptions, sort primarily by stars then pushed_at
         const filtered = json
           .filter(repo => !repo.fork && repo.description)
@@ -71,19 +72,19 @@ export default function Projects({ data }: ProjectsProps) {
 
   const displayProjects = !error && repos.length > 0
     ? repos.map(repo => ({
-        title: repo.name,
-        about: repo.description,
-        url: repo.html_url,
-        stars: repo.stargazers_count,
-        language: repo.language,
-        isGithub: true
-      }))
+      title: repo.name,
+      about: repo.description,
+      url: repo.html_url,
+      stars: repo.stargazers_count,
+      language: repo.language,
+      isGithub: true
+    }))
     : data.projects?.map(p => ({
-        ...p,
-        isGithub: false,
-        stars: 0,
-        language: ""
-      })) || []
+      ...p,
+      isGithub: false,
+      stars: 0,
+      language: ""
+    })) || []
 
   return (
     <section className="container mx-auto px-4 py-8 md:py-12" id="projects">
@@ -105,17 +106,17 @@ export default function Projects({ data }: ProjectsProps) {
             {displayProjects.map((project, index) => (
               <div
                 key={index}
-                style={{ animationDelay: \`\${index * 150}ms\` }}
+                style={{ animationDelay: `${index * 150}ms` }}
                 className="border-2 border-border bg-card/80 backdrop-blur-sm hover:border-accent hover:-translate-y-1 transition-all duration-300 group shadow-lg hover:shadow-accent/5 transform-gpu animate-in fade-in slide-in-from-bottom-4"
               >
                 <div className="font-mono p-4 md:p-6 flex flex-col h-full">
                   <div className="text-accent/50 text-[10px] md:text-xs mb-3 group-hover:text-accent transition-colors duration-300">
                     ╔═══════════════════╗
                   </div>
-                  
+
                   <div className="flex justify-between items-start mb-3 pl-2">
-                    <h3 className="text-foreground font-bold text-sm md:text-lg break-words group-hover:text-accent transition-colors">
-                      {project.title}
+                    <h3 className="text-foreground font-bold text-sm md:text-lg break-words group-hover:text-accent transition-colors overflow-hidden">
+                      <MatrixText text={project.title} triggerOnHover={true} />
                     </h3>
                     {project.isGithub && project.stars > 0 && (
                       <div className="flex items-center gap-1 text-xs text-muted-foreground bg-accent/10 py-1 px-2 border border-accent/20">
@@ -124,7 +125,7 @@ export default function Projects({ data }: ProjectsProps) {
                       </div>
                     )}
                   </div>
-                  
+
                   <p className="text-muted-foreground text-[11px] md:text-sm leading-relaxed mb-4 pl-2 flex-grow">
                     {project.about}
                   </p>
@@ -133,14 +134,14 @@ export default function Projects({ data }: ProjectsProps) {
                     {project.isGithub && project.language && (
                       <div className="flex items-center gap-1.5 md:gap-2 text-[10px] md:text-xs text-muted-foreground mb-4 pl-2">
                         <Code className="w-3.5 h-3.5 text-accent" />
-                        <span className="opacity-80">{project.language}</span>
+                        <span className="opacity-80"><MatrixText text={project.language} triggerOnHover={true} /></span>
                       </div>
                     )}
 
                     <div className="text-accent/50 text-[10px] md:text-xs mb-3 group-hover:text-accent transition-colors duration-300">
                       ╚═══════════════════╝
                     </div>
-                    
+
                     <div className="group/btn relative inline-flex">
                       <div className="absolute inset-0 bg-accent/20 blur-md opacity-0 group-hover/btn:opacity-100 transition-opacity"></div>
                       <a

@@ -1,3 +1,5 @@
+import { MatrixText } from "./matrix-text"
+
 interface AboutProps {
   data: {
     bio: string
@@ -63,7 +65,7 @@ export default function About({ data }: AboutProps) {
                   rel="noopener noreferrer"
                   className="group/link relative inline-flex font-mono text-xs md:text-sm text-foreground hover:text-accent transition-colors border border-border px-6 py-2 bg-background/50 hover:border-accent uppercase tracking-wider overflow-hidden"
                 >
-                  <span className="relative z-10">[{social.name}]</span>
+                  <span className="relative z-10">[<MatrixText text={social.name} triggerOnHover={true} />]</span>
                   <div className="absolute inset-0 bg-accent/10 translate-y-[100%] group-hover/link:translate-y-0 transition-transform duration-300 pointer-events-none" />
                 </a>
               ))}
@@ -75,7 +77,7 @@ export default function About({ data }: AboutProps) {
                   rel="noopener noreferrer"
                   className="group/link relative inline-flex font-mono text-xs md:text-sm text-foreground hover:text-accent transition-colors border border-border px-6 py-2 bg-background/50 hover:border-accent uppercase tracking-wider overflow-hidden"
                 >
-                  <span className="relative z-10">[{profile.name}]</span>
+                  <span className="relative z-10">[<MatrixText text={profile.name} triggerOnHover={true} />]</span>
                   <div className="absolute inset-0 bg-accent/10 translate-y-[100%] group-hover/link:translate-y-0 transition-transform duration-300 pointer-events-none" />
                 </a>
               ))}

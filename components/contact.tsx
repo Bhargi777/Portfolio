@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Send, CheckCircle2, Loader2, Mail } from "lucide-react"
+import { MatrixText } from "./matrix-text"
 
 interface ContactProps {
   data: {
@@ -22,16 +23,35 @@ export default function Contact({ data }: ContactProps) {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Ready for Formspree/Resend API
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    /*
+     * HOW TO RECEIVE CONTACT DATA:
+     * 1. Go to Formspree.io and create a free account
+     * 2. Create a new form
+     * 3. Replace the URL below with your actual form endpoint
+    */
+    const form = e.target as HTMLFormElement
+    const formData = new FormData(form)
 
-    setIsSubmitting(false)
-    setIsSuccess(true)
+    try {
+      // NOTE: Replace this URL with your actual API endpoint once you have it.
+      await fetch("https://formspree.io/f/YOUR_ENDPOINT_HERE", {
+        method: "POST",
+        body: formData,
+        headers: { "Accept": "application/json" }
+      })
+      // Simulating network delay for now because endpoint isn't real yet
+      await new Promise((resolve) => setTimeout(resolve, 800))
 
-    setTimeout(() => {
-      setIsSuccess(false)
-        ; (e.target as HTMLFormElement).reset()
-    }, 4000)
+      setIsSuccess(true)
+    } catch (err) {
+      console.error(err)
+    } finally {
+      setIsSubmitting(false)
+      setTimeout(() => {
+        setIsSuccess(false)
+        form.reset()
+      }, 4000)
+    }
   }
 
   return (
@@ -46,9 +66,10 @@ export default function Contact({ data }: ContactProps) {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 animate-in fade-in slide-in-from-bottom-4 duration-1000">
           <div className="space-y-6 flex flex-col justify-center">
-            <div>
+            <div className="group/connect">
               <h2 className="text-2xl lg:text-3xl font-bold font-mono text-foreground mb-4 flex items-center gap-2">
-                <span className="text-accent animate-pulse">{">"}</span> Let's Connect
+                <span className="text-accent animate-pulse">{">"}</span>
+                <span className="group-hover/connect:text-accent transition-colors"><MatrixText text="Let's Connect" triggerOnHover={true} /></span>
               </h2>
               <p className="text-muted-foreground font-mono text-sm leading-relaxed max-w-md">{data.contactmessage}</p>
             </div>
@@ -94,6 +115,7 @@ export default function Contact({ data }: ContactProps) {
                   <label htmlFor="name" className="sr-only">Name</label>
                   <input
                     id="name"
+                    name="name"
                     required
                     type="text"
                     placeholder="IDENTIFIER (Name)"
@@ -104,6 +126,7 @@ export default function Contact({ data }: ContactProps) {
                   <label htmlFor="email" className="sr-only">Email</label>
                   <input
                     id="email"
+                    name="email"
                     required
                     type="email"
                     placeholder="ROUTING_ADDRESS (Email)"
@@ -114,6 +137,7 @@ export default function Contact({ data }: ContactProps) {
                   <label htmlFor="message" className="sr-only">Message</label>
                   <textarea
                     id="message"
+                    name="message"
                     required
                     rows={5}
                     placeholder="PAYLOAD (Message body...)"

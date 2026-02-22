@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 
 const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*"
 
@@ -9,32 +9,33 @@ interface MatrixTextProps {
     delay?: number
     duration?: number
     className?: string
+    triggerOnHover?: boolean
 }
 
-export function MatrixText({ text, delay = 0, duration = 1000, className = "" }: MatrixTextProps) {
-    const [displayText, setDisplayText] = useState(text.replace(/./g, " "))
+export function MatrixText({ text, delay = 0, duration = 1000, className = "", triggerOnHover = false }: MatrixTextProps) {
+    const [displayText, setDisplayText] = useState(triggerOnHover ? text : text.replace(/./g, " "))
+    const animationRef = useRef<number | null>(null)
 
-    useEffect(() => {
+    const runMatrixAnimation = () => {
         let startTime: number | null = null
-        let animationFrameId: number
-        let timeoutId: NodeJS.Timeout
+
+        // Cancel any ongoing animation
+        if (animationRef.current) cancelAnimationFrame(animationRef.current)
 
         const animate = (timestamp: number) => {
             if (!startTime) startTime = timestamp
             const progress = timestamp - startTime
 
             if (progress < duration) {
-                // As progress approaches duration, more actual characters are revealed
                 const revealThreshold = progress / duration
                 let newText = ""
 
                 for (let i = 0; i < text.length; i++) {
-                    if (text[i] === " ") {
-                        newText += " "
+                    if (text[i] === " " || text[i] === "\n") {
+                        newText += text[i]
                         continue
                     }
 
-                    // Randomly show original char or a matrix char
                     if (Math.random() < revealThreshold) {
                         newText += text[i]
                     } else {
@@ -43,21 +44,35 @@ export function MatrixText({ text, delay = 0, duration = 1000, className = "" }:
                 }
 
                 setDisplayText(newText)
-                animationFrameId = requestAnimationFrame(animate)
+                animationRef.current = requestAnimationFrame(animate)
             } else {
                 setDisplayText(text)
             }
         }
 
+        animationRef.current = requestAnimationFrame(animate)
+    }
+
+    useEffect(() => {
+        if (triggerOnHover) return // Don't run on mount if hover trigger enabled
+
+        let timeoutId: NodeJS.Timeout
         timeoutId = setTimeout(() => {
-            animationFrameId = requestAnimationFrame(animate)
+            runMatrixAnimation()
         }, delay)
 
         return () => {
             clearTimeout(timeoutId)
-            if (animationFrameId) cancelAnimationFrame(animationFrameId)
+            if (animationRef.current) cancelAnimationFrame(animationRef.current)
         }
-    }, [text, delay, duration])
+    }, [text, delay, duration, triggerOnHover])
 
-    return <span className={className}>{displayText}</span>
+    return (
+        <span
+            className={className}
+            onMouseEnter={triggerOnHover ? runMatrixAnimation : undefined}
+        >
+            {displayText}
+        </span>
+    )
 }
