@@ -9,16 +9,15 @@ export default function Hero({ data }: HeroProps) {
   return (
     <section className="container mx-auto px-4 py-8 md:py-16 lg:py-24 relative scan-line">
       <div className="flex flex-col items-center justify-center gap-4 md:gap-8">
-        <div className="font-mono leading-tight w-full overflow-x-auto">
-          <pre className="text-[7px] sm:text-[9px] md:text-xs lg:text-sm neon-text mx-auto inline-block">
+        <div className="font-mono leading-tight w-full flex justify-center overflow-x-auto">
+          <pre className="text-[7px] sm:text-[9px] md:text-xs lg:text-sm neon-text">
             {`
 ██████╗ ██╗  ██╗ █████╗ ██████╗  ██████╗  █████╗ ██╗   ██╗ █████╗  
 ██╔══██╗██║  ██║██╔══██╗██╔══██╗██╔════╝ ██╔══██╗██║   ██║██╔══██╗  
 ██████╔╝███████║███████║██████╔╝██║  ███╗███████║██║   ██║███████║  
 ██╔══██╗██╔══██║██╔══██║██╔══██╗██║   ██║██╔══██║██║   ██║██╔══██║  
 ██████╔╝██║  ██║██║  ██║██║  ██║╚██████╔╝██║  ██║╚██████╔╝██║  ██║  
-╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝  
-`}
+╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝ `}
           </pre>
         </div>
 
