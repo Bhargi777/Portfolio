@@ -13,10 +13,12 @@ export default function Education({ data }: EducationProps) {
   return (
     <section className="container mx-auto px-4 py-8 md:py-12" id="education">
       <div className="max-w-4xl mx-auto">
-        <div className="font-mono text-accent mb-4 md:mb-6 flex flex-col items-center overflow-x-auto">
-          <pre className="text-[10px] md:text-xs">╔══════════════════════════════╗</pre>
-          <pre className="text-[10px] md:text-xs font-bold">║ EDUCATION ║</pre>
-          <pre className="text-[10px] md:text-xs">╚══════════════════════════════╝</pre>
+        <div className="flex items-center gap-4 mb-8 md:mb-12">
+          <div className="h-px bg-accent/30 flex-1"></div>
+          <h2 className="text-xl md:text-2xl font-bold font-mono tracking-wider text-foreground uppercase">
+            [ ACADEMIC_RECORD ]
+          </h2>
+          <div className="h-px bg-accent/30 flex-1"></div>
         </div>
 
         <div className="space-y-3 md:space-y-4">

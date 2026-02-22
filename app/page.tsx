@@ -11,6 +11,8 @@ import Education from "@/components/education"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 
+import { LoadingScreen } from "@/components/loading-screen"
+
 interface ResumeData {
   main: any
   resume: any
@@ -28,33 +30,14 @@ export default function Page() {
   }, [])
 
   if (!data) {
-    return (
-      <div className="flex flex-col min-h-screen items-center justify-center bg-background relative overflow-hidden">
-        <div className="absolute inset-0 bg-accent/5 blur-3xl rounded-full scale-150 animate-pulse" style={{ animationDuration: '3s' }} />
-        <div className="font-mono text-sm text-accent animate-in fade-in zoom-in duration-500 relative z-10 flex flex-col items-center gap-6">
-          <Loader2 className="w-10 h-10 animate-spin" />
-          <pre className="text-center tracking-widest text-xs md:text-sm shadow-lg shadow-accent/20 border border-accent/20 p-6 bg-background/50 backdrop-blur-md">
-            {`╔════════════════════════╗
-║ INITIALIZING SYSTEM... ║
-╚════════════════════════╝`}
-          </pre>
-          <div className="h-1 w-48 bg-border overflow-hidden rounded-full">
-            <div className="h-full bg-accent animate-[waving_2s_ease-in-out_infinite] w-1/2" style={{ animationName: 'progress' }} />
-          </div>
-        </div>
-      </div>
-    )
+    return <LoadingScreen />
   }
 
   return (
-    <main className="min-h-screen bg-background">
-      <Hero data={data.main} />
-      <About data={data.main} />
-      <Experience data={data.resume} />
-      <Projects data={data.portfolio} />
-      <Skills data={data.resume} />
-      <Education data={data.resume} />
-      <Contact data={data.main} />
+    <main className="min-h-screen bg-transparent flex flex-col justify-between">
+      <div className="flex-1 flex flex-col justify-center pb-20">
+        <Hero data={data.main} />
+      </div>
       <Footer />
     </main>
   )

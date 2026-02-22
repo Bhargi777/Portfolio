@@ -22,11 +22,12 @@ export default function About({ data }: AboutProps) {
   return (
     <section className="container mx-auto px-4 py-8 md:py-16" id="about">
       <div className="max-w-4xl mx-auto">
-        <div className="font-mono text-accent mb-6 md:mb-10 flex flex-col items-center overflow-x-auto relative group">
-          <div className="absolute inset-0 bg-accent/5 blur-xl group-hover:bg-accent/10 transition-colors duration-700"></div>
-          <pre className="text-[10px] md:text-xs">╔══════════════════════════════════╗</pre>
-          <pre className="text-[10px] md:text-xs font-bold tracking-widest">║ IDENTITY_MATRIX ║</pre>
-          <pre className="text-[10px] md:text-xs">╚══════════════════════════════════╝</pre>
+        <div className="flex items-center gap-4 mb-8 md:mb-12">
+          <div className="h-px bg-accent/30 flex-1"></div>
+          <h2 className="text-xl md:text-2xl font-bold font-mono tracking-wider text-foreground uppercase">
+            [ IDENTITY_MATRIX ]
+          </h2>
+          <div className="h-px bg-accent/30 flex-1"></div>
         </div>
 
         <div className="border border-border p-6 md:p-10 bg-card/80 backdrop-blur-sm hover:border-accent transition-all duration-500 group shadow-lg hover:shadow-accent/5 relative overflow-hidden animate-in fade-in slide-in-from-bottom-4">

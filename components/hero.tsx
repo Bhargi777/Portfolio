@@ -13,19 +13,16 @@ export default function Hero({ data }: HeroProps) {
   return (
     <section className="container mx-auto px-4 py-8 md:py-16 lg:py-24 relative scan-line animate-in fade-in duration-1000">
       <div className="flex flex-col items-center justify-center gap-6 md:gap-10">
-        <div className="font-mono leading-tight w-full flex justify-center overflow-x-auto relative">
-          {/* Subtle glow behind ASCII art */}
-          <div className="absolute inset-0 bg-accent/5 blur-3xl scale-150 rounded-full animate-pulse" style={{ animationDuration: '4s' }} />
+        <div className="font-mono leading-tight w-full flex justify-center overflow-x-auto relative pt-4">
+          <div className="absolute inset-0 bg-accent/5 blur-3xl scale-150 rounded-full animate-pulse z-0" style={{ animationDuration: '4s' }} />
 
-          <pre className="text-[7px] sm:text-[9px] md:text-xs lg:text-sm neon-text z-10 animate-in slide-in-from-top-4 duration-1000">
-            {`
-██████╗ ██╗  ██╗ █████╗ ██████╗  ██████╗  █████╗ ██╗   ██╗ █████╗  
-██╔══██╗██║  ██║██╔══██╗██╔══██╗██╔════╝ ██╔══██╗██║   ██║██╔══██╗  
-██████╔╝███████║███████║██████╔╝██║  ███╗███████║██║   ██║███████║  
-██╔══██╗██╔══██║██╔══██║██╔══██╗██║   ██║██╔══██║██║   ██║██╔══██║  
-██████╔╝██║  ██║██║  ██║██║  ██║╚██████╔╝██║  ██║╚██████╔╝██║  ██║  
-╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝ `}
-          </pre>
+          <div className="flex items-center justify-center gap-1 md:gap-3 font-mono text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter animate-in slide-in-from-top-6 duration-1000 z-10 overflow-hidden px-4">
+            <span className="text-accent/60 font-light select-none">{"{"}</span>
+            <span className="text-foreground border-b-2 border-accent/30 pb-1 md:pb-2">
+              BHARGAVA_MK
+            </span>
+            <span className="text-accent/60 font-light select-none">{"}"}</span>
+          </div>
         </div>
 
         <div className="text-center space-y-5 md:space-y-8 w-full z-10 mt-2">
@@ -47,7 +44,7 @@ export default function Hero({ data }: HeroProps) {
               className="group relative inline-flex items-center gap-3 font-mono text-xs md:text-sm bg-accent text-accent-foreground px-6 py-3 uppercase tracking-widest hover:bg-accent/90 transition-all shadow-lg shadow-accent/20 hover:shadow-accent/40"
             >
               <FileText className="w-4 h-4" />
-              <span>Initialize Resume</span>
+              <span>Download Resume</span>
               <div className="absolute inset-0 border border-current scale-[1.03] opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300" />
             </a>
           </div>

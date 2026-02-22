@@ -12,6 +12,16 @@ interface ContactProps {
       city: string
       state: string
     }
+    social?: Array<{
+      name: string
+      url: string
+      className: string
+    }>
+    profiles?: Array<{
+      name: string
+      url: string
+      className: string
+    }>
   }
 }
 
@@ -57,11 +67,12 @@ export default function Contact({ data }: ContactProps) {
   return (
     <section className="container mx-auto px-4 py-8 md:py-16" id="contact">
       <div className="max-w-4xl mx-auto">
-        <div className="font-mono text-accent mb-8 md:mb-12 flex flex-col items-center overflow-x-auto relative group">
-          <div className="absolute inset-0 bg-accent/5 blur-xl group-hover:bg-accent/10 transition-colors duration-700"></div>
-          <pre className="text-[10px] md:text-xs">╔══════════════════════════════╗</pre>
-          <pre className="text-[10px] md:text-xs font-bold tracking-widest">║ SYSTEM.CONNECTION_ESTABLISH ║</pre>
-          <pre className="text-[10px] md:text-xs">╚══════════════════════════════╝</pre>
+        <div className="flex items-center gap-4 mb-8 md:mb-12 mt-4">
+          <div className="h-px bg-accent/30 flex-1"></div>
+          <h2 className="text-xl md:text-2xl font-bold font-mono tracking-wider text-foreground uppercase">
+            [ SYSTEM_CONNECTION ]
+          </h2>
+          <div className="h-px bg-accent/30 flex-1"></div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 animate-in fade-in slide-in-from-bottom-4 duration-1000">
@@ -88,13 +99,31 @@ export default function Contact({ data }: ContactProps) {
                 </div>
               </a>
 
-              <div className="p-4 border border-border bg-card/30 flex items-center gap-4">
-                <div className="bg-background/50 p-3 border border-border flex items-center justify-center">
-                  <span className="font-mono text-accent text-lg leading-none">@</span>
-                </div>
-                <div>
-                  <div className="text-[10px] md:text-xs text-muted-foreground font-mono mb-1 uppercase tracking-wider">Base of Operations</div>
-                  <div className="text-xs md:text-sm font-mono text-foreground">{data.address.city}, {data.address.state}</div>
+              <div className="p-4 border border-border bg-card/30 flex flex-col gap-4">
+                <div className="text-[10px] md:text-xs text-muted-foreground font-mono uppercase tracking-wider border-b border-border/50 pb-2">Verified Neural Links</div>
+                <div className="flex flex-wrap gap-3">
+                  {data.social?.map((social) => (
+                    <a
+                      key={social.name}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-mono text-foreground hover:text-accent transition-colors border border-border px-4 py-2 bg-background/50 hover:border-accent uppercase"
+                    >
+                      <MatrixText text={social.name} triggerOnHover={true} />
+                    </a>
+                  ))}
+                  {data.profiles?.map((profile) => (
+                    <a
+                      key={profile.name}
+                      href={profile.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-mono text-foreground hover:text-accent transition-colors border border-border px-4 py-2 bg-background/50 hover:border-accent uppercase"
+                    >
+                      <MatrixText text={profile.name} triggerOnHover={true} />
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>
