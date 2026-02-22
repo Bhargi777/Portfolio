@@ -19,7 +19,7 @@ export default function Hero({ data }: HeroProps) {
           <div className="flex items-center justify-center gap-1 md:gap-3 font-mono text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter animate-in slide-in-from-top-6 duration-1000 z-10 overflow-hidden px-4">
             <span className="text-accent/60 font-light select-none">{"{"}</span>
             <span className="text-foreground border-b-2 border-accent/30 pb-1 md:pb-2">
-              BHARGAVA_MK
+              BHARGAVA
             </span>
             <span className="text-accent/60 font-light select-none">{"}"}</span>
           </div>
