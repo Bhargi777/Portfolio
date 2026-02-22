@@ -1,0 +1,138 @@
+{
+  "main": {
+    "name": "Bhargava Sri Sai M K",
+    "occupation": "Full-Stack Developer & Embedded Systems Enthusiast",
+    "description": "",
+    "image": "profilepic.jpg",
+    "bio": "Computer Science undergraduate with hands-on experience in software development, embedded systems, and NLP-based applications. Passionate about building practical technical solutions and demonstrated leadership in organizing and managing large-scale institutional initiatives.",
+    "contactmessage": "Let's build something amazing together!",
+    "email": "bhargavasrisai7@gmail.com",
+    "phone": "7032159698",
+    "address": {
+      "street": "",
+      "city": "Kurnool",
+      "state": "Andhra Pradesh",
+      "zip": ""
+    },
+    "website": "",
+    "resumedownload": "",
+    "social": [
+      {
+        "name": "linkedin",
+        "url": "https://www.linkedin.com/in/bhargava-sri-sai-m-k-79b574341",
+        "className": "fa fa-linkedin"
+      },
+      {
+        "name": "github",
+        "url": "https://github.com/Bhargi777",
+        "className": "fa fa-github"
+      }
+    ],
+    "profiles": []
+  },
+  "resume": {
+    "skillmessage": "My Technical Arsenal",
+    "education": [
+      {
+        "school": "Amrita Vishwa Vidyapeetham",
+        "degree": "B.Tech in Computer Science and Engineering",
+        "graduated": "2028",
+        "description": "CGPA: 7.03"
+      }
+    ],
+    "work": [
+      {
+        "company": "National Service Scheme (NSS) – Unit 3",
+        "title": "Coordinator",
+        "years": "2024 - Present"
+      },
+      {
+        "company": "INIT Club",
+        "title": "Head of Logistics & Finance",
+        "years": "2025 - Present"
+      },
+      {
+        "company": "Shrishti Club – Poetry Wing",
+        "title": "Core Team Member",
+        "years": "2024 - Present"
+      }
+    ],
+    "skills": [
+      {
+        "name": "Python",
+        "level": "90%"
+      },
+      {
+        "name": "Java",
+        "level": "85%"
+      },
+      {
+        "name": "TypeScript & JavaScript",
+        "level": "85%"
+      },
+      {
+        "name": "Embedded C++",
+        "level": "80%"
+      },
+      {
+        "name": "NLP & Transformer Models",
+        "level": "85%"
+      },
+      {
+        "name": "RESTful APIs",
+        "level": "88%"
+      },
+      {
+        "name": "Arduino & IoT",
+        "level": "82%"
+      },
+      {
+        "name": "HTML & CSS",
+        "level": "85%"
+      }
+    ]
+  },
+  "portfolio": {
+    "projects": [
+      {
+        "title": "DocAI Transformer Services",
+        "about": "Developed modular RESTful microservices for document summarization and question answering using transformer-based NLP models. Implemented scalable Python backends with optimized inference pipelines and extensible API design.",
+        "image": "/byte.png",
+        "url": "https://github.com/Bhargi777/docai-transformer-services"
+      },
+      {
+        "title": "Personalized Smart Workspace using Arduino",
+        "about": "Built an Arduino-based smart workspace to automate lighting, fan speed, and posture reminders using sensor data. Integrated embedded C++ logic with real-time environmental monitoring for enhanced productivity.",
+        "image": "/akshaya.png",
+        "url": "https://github.com/Bhargi777/Personalized-Workspace-Environment-using-Arduino"
+      },
+      {
+        "title": "Food Delivery Application (Console-Based)",
+        "about": "Designed a Java-based food delivery system with optimized menu search using segment trees. Implemented role-based access for customers and administrators using OOP principles.",
+        "image": "/devdump.png",
+        "url": "https://github.com/Bhargi777/Food-Delivery-App"
+      },
+      {
+        "title": "INIT Club Website",
+        "about": "Developed and maintained the official INIT Club website using HTML, CSS, and TypeScript. Collaborated with the core team to publish events, updates, and announcements for the community.",
+        "image": "/furnace.png",
+        "url": "https://github.com/Bhargi777/Init-Website"
+      },
+      {
+        "title": "NSS Attendance & Certificate Management System",
+        "about": "Built web-based tools to manage NSS attendance records and digital certificate distribution. Streamlined volunteer management and documentation processes for large-scale outreach programs.",
+        "image": "/leegit.png",
+        "url": "https://github.com/Bhargi777/NSS-Certificates"
+      },
+      {
+        "title": "46th Inter-District Athletic Meet",
+        "about": "Managed volunteers, logistics, and budgeting for a three-day inter-district athletic event. Coordinated multiple departments and successfully executed a large-scale institutional event with 500+ participants.",
+        "image": "/byte.png",
+        "url": ""
+      }
+    ]
+  },
+  "testimonials": {
+    "testimonials": []
+  }
+}
