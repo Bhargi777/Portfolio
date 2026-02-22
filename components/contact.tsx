@@ -34,7 +34,7 @@ export default function Contact({ data }: ContactProps) {
 
     try {
       // NOTE: Replace this URL with your actual API endpoint once you have it.
-      await fetch("https://formspree.io/f/YOUR_ENDPOINT_HERE", {
+      await fetch("https://formspree.io/f/xeelryvd", {
         method: "POST",
         body: formData,
         headers: { "Accept": "application/json" }
