@@ -66,7 +66,7 @@ export default function Hero({ data }: HeroProps) {
               href="/about"
               className="group relative inline-flex items-center gap-3 font-mono text-xs md:text-sm bg-accent text-accent-foreground px-8 py-3 uppercase tracking-widest hover:bg-accent/90 transition-all shadow-lg active:scale-95 duration-300"
             >
-              <span className="relative z-10 font-bold">Wanna know more</span>
+              <span className="relative z-10 font-bold">Wanna know more??</span>
               <div className="absolute inset-0 border border-current scale-[1.03] opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300" />
             </a>
           </div>
