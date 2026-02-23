@@ -1,5 +1,20 @@
 import { MatrixText } from "./matrix-text"
-import { Github, Linkedin, Instagram, Twitter } from "lucide-react"
+import { Github, Linkedin, Instagram } from "lucide-react"
+
+const MediumIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    viewBox="0 0 1043.63 592.71"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <g>
+      <path d="M588.67 296.35c0 163.63-131.89 296.36-294.34 296.36S0 459.98 0 296.35 131.89 0 294.33 0s294.34 132.73 294.34 296.35z"/>
+      <path d="M911.11 296.35c0 154.03-65.94 278.93-147.28 278.93s-147.28-124.9-147.28-278.93S682.49 17.42 763.83 17.42s147.28 124.9 147.28 278.93z"/>
+      <path d="M1043.63 296.35c0 138.01-23.17 249.88-51.76 249.88s-51.76-111.87-51.76-249.88S963.28 46.47 991.87 46.47s51.76 111.87 51.76 249.88z"/>
+    </g>
+  </svg>
+)
 
 interface HeroProps {
   data: {
@@ -59,9 +74,9 @@ export default function Hero({ data }: HeroProps) {
           <div className="flex justify-center items-center gap-6 mt-10 animate-in slide-in-from-bottom-8 duration-1000 delay-700 fill-mode-both">
             {[
               { icon: Github, href: "https://github.com/Bhargi777" },
-              { icon: Linkedin, href: "#" },
-              { icon: Instagram, href: "#" },
-              { icon: Twitter, href: "#" }
+              { icon: Linkedin, href: "https://www.linkedin.com/in/bhargava-sri-sai-m-k-79b574341/" },
+              { icon: Instagram, href: "https://www.instagram.com/mkbhargavasrisai/" },
+              { icon: MediumIcon, href: "https://medium.com/@bhargavasrisai7" }
             ].map((social, idx) => (
               <a
                 key={idx}
