@@ -25,7 +25,7 @@ export default function About({ data }: AboutProps) {
         <div className="flex items-center gap-4 mb-8 md:mb-12">
           <div className="h-px bg-accent/30 flex-1"></div>
           <h2 className="text-xl md:text-2xl font-bold font-mono tracking-wider text-foreground uppercase">
-            [ IDENTITY_MATRIX ]
+            [ Introduction ]
           </h2>
           <div className="h-px bg-accent/30 flex-1"></div>
         </div>
@@ -43,7 +43,7 @@ export default function About({ data }: AboutProps) {
           <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-border/50 relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 font-mono text-[10px] md:text-[13px]">
               <div className="flex flex-col gap-1 border border-border/30 bg-background/30 p-4 hover:border-accent/40 transition-colors">
-                <span className="text-accent uppercase tracking-widest text-[9px] md:text-[10px] mb-1 jus">ROUTING_ADDRESS</span>{" "}
+                <span className="text-accent uppercase tracking-widest text-[9px] md:text-[10px] mb-1 jus">Email</span>{" "}
                 <a
                   href={`mailto:${data.email}`}
                   className="text-foreground hover:text-accent transition-colors break-all"
@@ -52,8 +52,8 @@ export default function About({ data }: AboutProps) {
                 </a>
               </div>
               <div className="flex flex-col gap-1 border border-border/30 bg-background/30 p-4 hover:border-accent/40 transition-colors">
-                <span className="text-accent uppercase tracking-widest text-[9px] md:text-[10px] mb-1">DIRECT_COMMS</span>
-                <span className="text-foreground">{data.phone}</span>
+                <span className="text-accent uppercase tracking-widest text-[9px] md:text-[10px] mb-1">Phone</span>
+                <a href={`tel:${data.phone}`} className="text-foreground">{data.phone}</a>
               </div>
             </div>
 

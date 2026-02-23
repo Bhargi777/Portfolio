@@ -15,7 +15,7 @@ export default function Experience({ data }: ExperienceProps) {
         <div className="flex items-center gap-4 mb-8 md:mb-12">
           <div className="h-px bg-accent/30 flex-1"></div>
           <h2 className="text-xl md:text-2xl font-bold font-mono tracking-wider text-foreground uppercase">
-            [ EXPERIENCE_LOGS ]
+            [ Clubs & Organizations ]
           </h2>
           <div className="h-px bg-accent/30 flex-1"></div>
         </div>

@@ -1,12 +1,12 @@
 {
   "main": {
     "name": "Bhargava Sri Sai M K",
-    "occupation": "Full-Stack Developer & Embedded Systems Enthusiast",
+    "occupation": "Computer Science Undergraduate & Tech Enthusiast",
     "description": "",
     "image": "profilepic.jpg",
-    "bio": "Computer Science undergraduate with hands-on experience in software development, embedded systems, and NLP-based applications. Passionate about building practical technical solutions and demonstrated leadership in organizing and managing large-scale institutional initiatives.",
+    "bio": "I’m a Computer Science undergraduate with hands-on experience in software development, embedded systems, and NLP-driven applications. I enjoy building practical, real-world solutions that bridge theory and implementation, whether through software systems or hardware-integrated projects. Beyond technical work, I’ve taken active roles in organizing and leading large-scale institutional initiatives, developing strong skills in leadership, collaboration, and execution. I’m driven by curiosity, continuous learning, and the desire to create meaningful technology that solves real problems.",
     "contactmessage": "Let's build something amazing together!",
-    "email": "bhargavasrisai7@gmail.com",
+    "email": "bhargi07@icloud.com",
     "phone": "7032159698",
     "address": {
       "street": "",
@@ -14,7 +14,7 @@
       "state": "Andhra Pradesh",
       "zip": ""
     },
-    "website": "",
+    "website": "https://bhargi.vercel.app",
     "resumedownload": "",
     "social": [
       {
@@ -26,11 +26,6 @@
         "name": "github",
         "url": "https://github.com/Bhargi777",
         "className": "fa fa-github"
-      },
-      {
-        "name": "instagram",
-        "url": "https://www.instagram.com/mkbhargavasrisai/",
-        "className": "fa fa-instagram"
       }
     ],
     "profiles": []
@@ -41,23 +36,32 @@
       {
         "school": "Amrita Vishwa Vidyapeetham",
         "degree": "B.Tech in Computer Science and Engineering",
-        "graduated": "2028",
-        "description": "CGPA: 7.03"
+        "graduated": "2028"
+      },
+      {
+        "school": "Narayana Junior College",
+        "degree": "Higher Secondary",
+        "graduated": "2024"
+      },
+      {
+        "school": "Narayana High School",
+        "degree": "Secondary",
+        "graduated": "2022"
       }
     ],
     "work": [
       {
         "company": "National Service Scheme (NSS) – Unit 3",
-        "title": "Coordinator",
+        "title": "Student Coordinator",
         "years": "2024 - Present"
       },
       {
-        "company": "INIT Club",
+        "company": "The INIT Club",
         "title": "Head of Logistics & Finance",
         "years": "2025 - Present"
       },
       {
-        "company": "Shrishti Club – Poetry Wing",
+        "company": "Shrishti Club – Poetree Wing",
         "title": "Core Team Member",
         "years": "2024 - Present"
       },
@@ -70,13 +74,7 @@
         "company": "Arya Club",
         "title": "Member",
         "years": "2024 - Present"
-      },
-      {
-        "company": "",
-        "title": "",
-        "years": "2024 - Present"
       }
-
     ],
     "skills": [
       {

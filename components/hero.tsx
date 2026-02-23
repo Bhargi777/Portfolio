@@ -1,5 +1,5 @@
 import { MatrixText } from "./matrix-text"
-import { Github, Linkedin, Instagram } from "lucide-react"
+import { Github, Linkedin } from "lucide-react"
 
 const MediumIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -75,7 +75,6 @@ export default function Hero({ data }: HeroProps) {
             {[
               { icon: Github, href: "https://github.com/Bhargi777" },
               { icon: Linkedin, href: "https://www.linkedin.com/in/bhargava-sri-sai-m-k-79b574341/" },
-              { icon: Instagram, href: "https://www.instagram.com/mkbhargavasrisai/" },
               { icon: MediumIcon, href: "https://medium.com/@bhargavasrisai7" }
             ].map((social, idx) => (
               <a
