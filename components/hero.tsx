@@ -59,12 +59,10 @@ export default function Hero({ data }: HeroProps) {
           <div className="flex flex-wrap items-center justify-center gap-6 mt-8 animate-in slide-in-from-bottom-4 duration-1000 delay-500 fill-mode-both">
             <a
               href="/about"
-              className="group relative inline-flex items-center gap-3 font-mono text-xs md:text-sm bg-accent text-accent-foreground px-8 py-3 uppercase tracking-widest hover:bg-accent/90 transition-all shadow-[0_0_15px_rgba(var(--accent),0.3)] hover:shadow-[0_0_25px_rgba(var(--accent),0.5)] active:scale-95 duration-300"
+              className="group relative inline-flex items-center gap-3 font-mono text-xs md:text-sm bg-accent text-accent-foreground px-8 py-3 uppercase tracking-widest hover:bg-accent/90 transition-all shadow-lg active:scale-95 duration-300"
             >
               <span className="relative z-10 font-bold">Wanna know more</span>
               <div className="absolute inset-0 border border-current scale-[1.03] opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300" />
-              {/* Click ripple / shine effect */}
-              <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] skew-x-12 z-0 opacity-0 group-hover:opacity-100" />
             </a>
           </div>
 
@@ -87,11 +85,6 @@ export default function Hero({ data }: HeroProps) {
             ))}
           </div>
           
-          <style dangerouslySetInnerHTML={{__html: `
-            @keyframes shimmer {
-                100% { transform: translateX(200%); }
-            }
-          `}} />
         </div>
       </div>
 

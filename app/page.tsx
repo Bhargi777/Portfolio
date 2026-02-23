@@ -28,7 +28,7 @@ export default function Page() {
       .then((json) => {
         setTimeout(() => {
             setData(json)
-        }, 2500)
+        }, 1200)
       })
       .catch((err) => console.error("[v0] Failed to load resume data:", err))
   }, [])

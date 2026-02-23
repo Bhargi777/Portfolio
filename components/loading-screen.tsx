@@ -1,44 +1,44 @@
-import { Loader2 } from "lucide-react"
+import { useState, useEffect } from "react"
 
 export function LoadingScreen() {
-    return (
-        <div className="flex flex-col min-h-screen items-center justify-center bg-transparent relative overflow-hidden pt-16">
-            <div className="absolute inset-0 bg-accent/5 blur-3xl rounded-full scale-[2] animate-pulse" style={{ animationDuration: '4s' }} />
-            
-            {/* New Futuristic Background Elements for Loading */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
-                <div className="w-[60vw] h-[60vw] max-w-[600px] max-h-[600px] border-[1px] border-accent rounded-full animate-[spin_12s_linear_infinite]" style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }} />
-                <div className="w-[45vw] h-[45vw] max-w-[450px] max-h-[450px] border-[1px] border-accent/50 rounded-full animate-[spin_18s_linear_infinite_reverse] absolute" style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }} />
-            </div>
+    const [progress, setProgress] = useState(0)
 
-            <div className="font-mono text-sm text-accent animate-in fade-in zoom-in duration-500 relative z-10 flex flex-col items-center gap-8">
-                <div className="relative flex items-center justify-center w-24 h-24">
-                    <div className="absolute inset-0 border-t-2 border-l-2 border-accent rounded-full animate-spin" style={{ animationDuration: '1.5s' }} />
-                    <div className="absolute inset-2 border-b-2 border-r-2 border-primary rounded-full animate-spin" style={{ animationDuration: '2s', animationDirection: 'reverse' }} />
-                    <Loader2 className="w-10 h-10 animate-spin text-accent" style={{ animationDuration: '3s' }} />
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setProgress(prev => {
+                if (prev >= 100) {
+                    clearInterval(interval)
+                    return 100
+                }
+                // Random increments for a realistic loading feel
+                return prev + Math.floor(Math.random() * 15) + 5
+            })
+        }, 120)
+        return () => clearInterval(interval)
+    }, [])
+
+    return (
+        <div className="flex flex-col min-h-screen items-center justify-center bg-background relative overflow-hidden">
+            {/* Subtle light effect behind */}
+            <div className="absolute inset-0 bg-primary/5 blur-3xl rounded-full scale-[1.5]" />
+            
+            <div className="z-10 flex flex-col items-center w-full max-w-xs px-6">
+                <div className="text-accent font-mono text-sm tracking-[0.3em] uppercase mb-4 opacity-80 flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full animate-ping" />
+                    Connecting
                 </div>
 
-                <div className="flex flex-col items-center">
-                    <pre className="text-center tracking-widest text-xs md:text-sm text-primary drop-shadow-[0_0_8px_rgba(var(--primary),0.8)] border border-accent/20 p-6 bg-background/50 backdrop-blur-md rounded-lg">
-{`   /\\   
-  /  \\  
- /____\\ 
- \\    / 
-  \\  /  
-   \\/   `}
-                    </pre>
-                    <div className="mt-8 flex space-x-1.5 font-bold tracking-[0.5em] uppercase text-xs">
-                        <span className="animate-bounce" style={{ animationDelay: '0ms' }}>S</span>
-                        <span className="animate-bounce" style={{ animationDelay: '100ms' }}>Y</span>
-                        <span className="animate-bounce" style={{ animationDelay: '200ms' }}>N</span>
-                        <span className="animate-bounce" style={{ animationDelay: '300ms' }}>C</span>
-                        <span className="animate-bounce" style={{ animationDelay: '400ms' }}>I</span>
-                        <span className="animate-bounce" style={{ animationDelay: '500ms' }}>N</span>
-                        <span className="animate-bounce" style={{ animationDelay: '600ms' }}>G</span>
-                        <span className="animate-bounce" style={{ animationDelay: '700ms' }}>.</span>
-                        <span className="animate-bounce" style={{ animationDelay: '800ms' }}>.</span>
-                        <span className="animate-bounce" style={{ animationDelay: '900ms' }}>.</span>
-                    </div>
+                <div className="w-full h-px bg-border flex items-center relative">
+                    {/* Glowing progress line */}
+                    <div 
+                        className="absolute left-0 h-[2px] bg-accent transition-all duration-300 ease-out shadow-[0_0_10px_rgba(var(--accent),0.8)]"
+                        style={{ width: \`\${Math.min(progress, 100)}%\` }}
+                    />
+                </div>
+
+                <div className="w-full flex justify-between mt-3 font-mono text-[10px] text-muted-foreground/60 tracking-wider">
+                    <span>SYS.INITIALIZE</span>
+                    <span>{Math.min(progress, 100)}%</span>
                 </div>
             </div>
         </div>

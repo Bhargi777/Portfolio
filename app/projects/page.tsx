@@ -14,7 +14,7 @@ export default function ProjectsPage() {
             .then((json) => {
                 setTimeout(() => {
                     setData(json)
-                }, 2500)
+                }, 1200)
             })
             .catch((err) => console.error(err))
     }, [])
