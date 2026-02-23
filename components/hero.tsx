@@ -32,16 +32,6 @@ export default function Hero({ data }: HeroProps) {
                     />
                 </div>
                 
-                {/* Cyber scanning line */}
-                <div className="absolute left-0 right-0 h-0.5 bg-accent/80 blur-[1px] transform -translate-y-full animate-[scanline_4s_linear_infinite]" style={{ top: '0%' }} key="scanline" />
-                <style dangerouslySetInnerHTML={{__html: `
-                    @keyframes scanline {
-                        0% { top: 0%; opacity: 0; }
-                        10% { opacity: 1; }
-                        90% { opacity: 1; }
-                        100% { top: 100%; opacity: 0; }
-                    }
-                `}} />
             </div>
         </div>
 
