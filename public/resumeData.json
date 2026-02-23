@@ -26,6 +26,11 @@
         "name": "github",
         "url": "https://github.com/Bhargi777",
         "className": "fa fa-github"
+      },
+      {
+        "name": "instagram",
+        "url": "https://www.instagram.com/mkbhargavasrisai/",
+        "className": "fa fa-instagram"
       }
     ],
     "profiles": []
@@ -55,7 +60,23 @@
         "company": "Shrishti Club – Poetry Wing",
         "title": "Core Team Member",
         "years": "2024 - Present"
+      },
+      {
+        "company": "Team Media",
+        "title": "Photographer",
+        "years": "2024 - Present"
+      },
+      {
+        "company": "Arya Club",
+        "title": "Member",
+        "years": "2024 - Present"
+      },
+      {
+        "company": "",
+        "title": "",
+        "years": "2024 - Present"
       }
+
     ],
     "skills": [
       {
