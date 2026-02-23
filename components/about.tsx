@@ -43,7 +43,7 @@ export default function About({ data }: AboutProps) {
           <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-border/50 relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 font-mono text-[10px] md:text-[13px]">
               <div className="flex flex-col gap-1 border border-border/30 bg-background/30 p-4 hover:border-accent/40 transition-colors">
-                <span className="text-accent uppercase tracking-widest text-[9px] md:text-[10px] mb-1">ROUTING_ADDRESS</span>{" "}
+                <span className="text-accent uppercase tracking-widest text-[9px] md:text-[10px] mb-1 jus">ROUTING_ADDRESS</span>{" "}
                 <a
                   href={`mailto:${data.email}`}
                   className="text-foreground hover:text-accent transition-colors break-all"
@@ -57,7 +57,7 @@ export default function About({ data }: AboutProps) {
               </div>
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap gap-4 justify-center">
               {data.social?.map((social) => (
                 <a
                   key={social.name}
