@@ -32,7 +32,7 @@ export function LoadingScreen() {
                     {/* Glowing progress line */}
                     <div 
                         className="absolute left-0 h-[2px] bg-accent transition-all duration-300 ease-out shadow-[0_0_10px_rgba(var(--accent),0.8)]"
-                        style={{ width: \`\${Math.min(progress, 100)}%\` }}
+                        style={{ width: `${Math.min(progress, 100)}%` }}
                     />
                 </div>
 
