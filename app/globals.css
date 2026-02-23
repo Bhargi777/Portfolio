@@ -110,56 +110,58 @@
 
   body {
     @apply bg-background text-foreground antialiased selection:bg-accent/30 selection:text-accent-foreground;
-    /* Clean futuristic dots background */
-    background-image:
-      radial-gradient(circle, var(--border) 1.5px, transparent 1.5px),
-      radial-gradient(circle, var(--border) 1.5px, transparent 1.5px);
-    background-size: 48px 48px;
-    background-position: 0 0, 24px 24px;
     position: relative;
-    animation: drift 60s linear infinite;
+    overflow-x: hidden;
   }
 
-  @keyframes drift {
-    from {
-      background-position: 0 0, 24px 24px;
-    }
-    to {
-      background-position: 48px 48px, 72px 72px;
-    }
-  }
-
-  /* Smooth vignette effect */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: radial-gradient(circle at center, transparent 20%, var(--background) 110%);
-    pointer-events: none;
-    z-index: 10;
-  }
-
-  /* subtle moving wave line */
+  /* Cyber grid background */
   body::after {
     content: "";
     position: fixed;
     inset: 0;
+    z-index: -2;
+    background-image:
+      linear-gradient(to right, color-mix(in srgb, var(--border) 40%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in srgb, var(--border) 40%, transparent) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+    animation: pan-grid 20s linear infinite;
     pointer-events: none;
-    background: linear-gradient(to bottom,
-        transparent 48%,
-        color-mix(in srgb, var(--accent) 15%, transparent) 50%,
-        transparent 52%);
-    background-size: 100% 12px;
-    z-index: 11;
-    animation: scanlines 20s linear infinite;
   }
 
-  @keyframes scanlines {
-    from {
-      background-position: 0 0;
+  /* Glowing orbs that look good in both themes */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(circle at 15% 50%, color-mix(in srgb, var(--primary) 12%, transparent), transparent 40%),
+      radial-gradient(circle at 85% 30%, color-mix(in srgb, var(--accent) 15%, transparent), transparent 45%);
+    filter: blur(40px);
+    animation: pulse-glow 10s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
+
+  @keyframes pan-grid {
+    0% {
+      transform: translateY(0);
     }
-    to {
-      background-position: 0 120px;
+
+    100% {
+      transform: translateY(60px);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1.15);
     }
   }
 }

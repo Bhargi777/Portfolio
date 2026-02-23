@@ -25,7 +25,11 @@ export default function Page() {
   useEffect(() => {
     fetch("/resumeData.json")
       .then((res) => res.json())
-      .then((json) => setData(json))
+      .then((json) => {
+        setTimeout(() => {
+            setData(json)
+        }, 2500)
+      })
       .catch((err) => console.error("[v0] Failed to load resume data:", err))
   }, [])
 

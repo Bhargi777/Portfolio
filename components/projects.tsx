@@ -28,6 +28,7 @@ export default function Projects({ data }: ProjectsProps) {
   const [repos, setRepos] = useState<GithubRepo[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
+  const [showAll, setShowAll] = useState(false)
 
   useEffect(() => {
     async function fetchRepos() {
@@ -103,13 +104,14 @@ export default function Projects({ data }: ProjectsProps) {
             <pre className="text-xs uppercase tracking-widest">{`[FETCHING_GITHUB_REPOS...]`}</pre>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-            {displayProjects.map((project, index) => (
-              <div
-                key={index}
-                style={{ animationDelay: `${index * 150}ms` }}
-                className="border-2 border-border bg-card/80 backdrop-blur-sm hover:border-accent hover:-translate-y-1 transition-all duration-300 group shadow-lg hover:shadow-accent/5 transform-gpu animate-in fade-in slide-in-from-bottom-4"
-              >
+          <div className="flex flex-col gap-8 md:gap-12">
+            <div className="group/grid grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 [perspective:1000px]">
+              {(showAll ? displayProjects : displayProjects.slice(0, 4)).map((project, index) => (
+                <div
+                  key={index}
+                  style={{ animationDelay: `${index * 150}ms` }}
+                  className="border-2 border-border bg-card/80 backdrop-blur-sm group shadow-lg transition-all duration-700 transform-gpu animate-in fade-in slide-in-from-bottom-8 fill-mode-both hover:-translate-y-3 hover:scale-[1.03] hover:border-accent hover:shadow-[0_20px_40px_rgba(var(--accent),0.3)] hover:z-20 md:group-hover/grid:scale-[0.97] md:group-hover/grid:blur-[2px] md:hover:!blur-none md:hover:!scale-[1.05]"
+                >
                 <div className="font-mono p-4 md:p-6 flex flex-col h-full">
                   <div className="text-accent/50 text-[10px] md:text-xs mb-3 group-hover:text-accent transition-colors duration-300">
                     ╔═══════════════════╗
@@ -159,6 +161,19 @@ export default function Projects({ data }: ProjectsProps) {
               </div>
             ))}
           </div>
+
+          {displayProjects.length > 4 && (
+            <div className="flex justify-center mt-4">
+              <button
+                onClick={() => setShowAll(!showAll)}
+                className="group relative inline-flex items-center gap-2 font-mono text-xs md:text-sm text-accent border border-accent/50 px-6 py-2 uppercase tracking-widest hover:bg-accent hover:text-accent-foreground transition-all shadow-[0_0_10px_rgba(var(--accent),0.1)] hover:shadow-[0_0_20px_rgba(var(--accent),0.4)] active:scale-95 duration-300"
+              >
+                <span>{showAll ? "[ COLLAPSE DIRECTORY ]" : "[ EXPAND DIRECTORY ]"}</span>
+                <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] skew-x-12 z-0 opacity-0 group-hover:opacity-100 pointer-events-none" />
+              </button>
+            </div>
+          )}
+        </div>
         )}
       </div>
     </section>

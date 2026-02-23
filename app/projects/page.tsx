@@ -11,7 +11,11 @@ export default function ProjectsPage() {
     useEffect(() => {
         fetch("/resumeData.json")
             .then((res) => res.json())
-            .then((json) => setData(json))
+            .then((json) => {
+                setTimeout(() => {
+                    setData(json)
+                }, 2500)
+            })
             .catch((err) => console.error(err))
     }, [])
 

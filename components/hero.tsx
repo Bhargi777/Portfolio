@@ -1,5 +1,5 @@
 import { MatrixText } from "./matrix-text"
-import { FileText } from "lucide-react"
+import { Github, Linkedin, Instagram, Twitter } from "lucide-react"
 
 interface HeroProps {
   data: {
@@ -13,16 +13,36 @@ export default function Hero({ data }: HeroProps) {
   return (
     <section className="container mx-auto px-4 py-8 md:py-16 lg:py-24 relative scan-line animate-in fade-in duration-1000">
       <div className="flex flex-col items-center justify-center gap-6 md:gap-10">
-        <div className="font-mono leading-tight w-full flex justify-center overflow-x-auto relative pt-4">
-          <div className="absolute inset-0 bg-accent/5 blur-3xl scale-150 rounded-full animate-pulse z-0" style={{ animationDuration: '4s' }} />
-
-          <div className="flex items-center justify-center gap-1 md:gap-3 font-mono text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter animate-in slide-in-from-top-6 duration-1000 z-10 overflow-hidden px-4">
-            <span className="text-accent/60 font-light select-none">{"{"}</span>
-            <span className="text-foreground border-b-2 border-accent/30 pb-1 md:pb-2">
-              BHARGAVA
-            </span>
-            <span className="text-accent/60 font-light select-none">{"}"}</span>
-          </div>
+        <div className="w-full flex justify-center mt-4">
+            <div className="relative group w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56">
+                {/* Animated outer rings */}
+                <div className="absolute -inset-4 rounded-full border border-accent/20 animate-[spin_10s_linear_infinite]" />
+                <div className="absolute -inset-2 rounded-full border-t border-r border-primary/50 animate-[spin_8s_linear_infinite_reverse]" />
+                
+                {/* Image mask */}
+                <div className="relative w-full h-full rounded-full overflow-hidden border border-accent/60 group-hover:border-accent transition-colors duration-500 shadow-[0_0_20px_rgba(var(--accent),0.2)] group-hover:shadow-[0_0_40px_rgba(var(--accent),0.4)]">
+                    <img 
+                      src="/profile.jpg" 
+                      alt="Bhargava" 
+                      className="w-full h-full object-cover bg-accent/5 backdrop-blur-sm grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110" 
+                      onError={(e) => { 
+                         e.currentTarget.style.display = 'none';
+                         e.currentTarget.parentElement?.insertAdjacentHTML('beforeend', '<div class="absolute inset-0 flex flex-col items-center justify-center text-accent/50 text-[10px] text-center font-mono"><span>[AVATAR_NOT_FOUND]</span><span class="opacity-50 mt-1">Place profile.jpg</span><span class="opacity-50">in public dir</span></div>');
+                      }}
+                    />
+                </div>
+                
+                {/* Cyber scanning line */}
+                <div className="absolute left-0 right-0 h-0.5 bg-accent/80 blur-[1px] transform -translate-y-full animate-[scanline_4s_linear_infinite]" style={{ top: '0%' }} key="scanline" />
+                <style dangerouslySetInnerHTML={{__html: `
+                    @keyframes scanline {
+                        0% { top: 0%; opacity: 0; }
+                        10% { opacity: 1; }
+                        90% { opacity: 1; }
+                        100% { top: 100%; opacity: 0; }
+                    }
+                `}} />
+            </div>
         </div>
 
         <div className="text-center space-y-5 md:space-y-8 w-full z-10 mt-2">
@@ -36,15 +56,42 @@ export default function Hero({ data }: HeroProps) {
             <span className="w-2 h-4 bg-accent inline-block align-middle ml-2 animate-pulse" style={{ animationDuration: '1s' }} />
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4 mt-8 animate-in slide-in-from-bottom-4 duration-1000 delay-500 fill-mode-both">
+          <div className="flex flex-wrap items-center justify-center gap-6 mt-8 animate-in slide-in-from-bottom-4 duration-1000 delay-500 fill-mode-both">
             <a
               href="/about"
-              className="group relative inline-flex items-center gap-3 font-mono text-xs md:text-sm bg-accent text-accent-foreground px-6 py-3 uppercase tracking-widest hover:bg-accent/90 transition-all shadow-lg shadow-accent/20 hover:shadow-accent/40"
+              className="group relative inline-flex items-center gap-3 font-mono text-xs md:text-sm bg-accent text-accent-foreground px-8 py-3 uppercase tracking-widest hover:bg-accent/90 transition-all shadow-[0_0_15px_rgba(var(--accent),0.3)] hover:shadow-[0_0_25px_rgba(var(--accent),0.5)] active:scale-95 duration-300"
             >
-              <span>Wanna know more</span>
+              <span className="relative z-10 font-bold">Wanna know more</span>
               <div className="absolute inset-0 border border-current scale-[1.03] opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300" />
+              {/* Click ripple / shine effect */}
+              <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] skew-x-12 z-0 opacity-0 group-hover:opacity-100" />
             </a>
           </div>
+
+          <div className="flex justify-center items-center gap-6 mt-10 animate-in slide-in-from-bottom-8 duration-1000 delay-700 fill-mode-both">
+            {[
+              { icon: Github, href: "https://github.com/Bhargi777" },
+              { icon: Linkedin, href: "#" },
+              { icon: Instagram, href: "#" },
+              { icon: Twitter, href: "#" }
+            ].map((social, idx) => (
+              <a
+                key={idx}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-accent hover:scale-125 hover:-translate-y-1 transition-all duration-300 hover:drop-shadow-[0_0_10px_rgba(var(--accent),0.8)]"
+              >
+                <social.icon className="w-5 h-5 md:w-6 md:h-6" />
+              </a>
+            ))}
+          </div>
+          
+          <style dangerouslySetInnerHTML={{__html: `
+            @keyframes shimmer {
+                100% { transform: translateX(200%); }
+            }
+          `}} />
         </div>
       </div>
 

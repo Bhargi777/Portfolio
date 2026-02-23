@@ -16,10 +16,10 @@ export function Navbar() {
     return (
         <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
             <div className="container mx-auto px-4 h-16 flex items-center justify-between font-mono text-xs md:text-sm">
-                <Link href="/" className="font-bold text-accent hover:text-primary transition-colors flex items-center gap-2">
-                    <span>{`[`}</span>
+                <Link href="/" className="font-bold text-accent hover:text-primary transition-colors flex items-center gap-1.5 md:gap-2 text-base md:text-xl">
+                    <span className="opacity-70">{`[`}</span>
                     <span className="tracking-widest">BHARGAVA</span>
-                    <span>{`]`}</span>
+                    <span className="opacity-70">{`]`}</span>
                 </Link>
                 <div className="flex items-center gap-4 md:gap-8">
                     <div className="hidden md:flex items-center gap-6 text-muted-foreground">
