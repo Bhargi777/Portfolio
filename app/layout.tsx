@@ -22,6 +22,10 @@ export const metadata: Metadata = {
   title: "Bhargava-Portfolio",
   description: "Fullstack Developer Portfolio with ASCII Art Theme",
   generator: "v0.app",
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function RootLayout({
