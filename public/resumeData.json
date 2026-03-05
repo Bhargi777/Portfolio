@@ -4,15 +4,12 @@
     "occupation": "Computer Science Undergraduate & Tech Enthusiast",
     "description": "",
     "image": "profilepic.jpg",
-    "bio": "I’m a Computer Science undergraduate with hands-on experience in software development, embedded systems, and NLP-driven applications. I enjoy building practical, real-world solutions that bridge theory and implementation, whether through software systems or hardware-integrated projects. Beyond technical work, I’ve taken active roles in organizing and leading large-scale institutional initiatives, developing strong skills in leadership, collaboration, and execution. I’m driven by curiosity, continuous learning, and the desire to create meaningful technology that solves real problems.",
+    "bio": "I'm a Computer Science undergraduate with hands-on experience in software development, embedded systems, and NLP-driven applications. I enjoy building practical, real-world solutions that bridge theory and implementation, whether through software systems or hardware-integrated projects. Beyond technical work, I've taken active roles in organizing and leading large-scale institutional initiatives, developing strong skills in leadership, collaboration, and execution. I'm driven by curiosity, continuous learning, and the desire to create meaningful technology that solves real problems.",
     "contactmessage": "Let's build something amazing together!",
     "email": "bhargi07@icloud.com",
-    "phone": "7032159698",
     "address": {
-      "street": "",
       "city": "Kurnool",
-      "state": "Andhra Pradesh",
-      "zip": ""
+      "state": "Andhra Pradesh"
     },
     "website": "https://bhargi.vercel.app",
     "resumedownload": "",
@@ -112,44 +109,7 @@
     ]
   },
   "portfolio": {
-    "projects": [
-      {
-        "title": "DocAI Transformer Services",
-        "about": "Developed modular RESTful microservices for document summarization and question answering using transformer-based NLP models. Implemented scalable Python backends with optimized inference pipelines and extensible API design.",
-        "image": "/byte.png",
-        "url": "https://github.com/Bhargi777/docai-transformer-services"
-      },
-      {
-        "title": "Personalized Smart Workspace using Arduino",
-        "about": "Built an Arduino-based smart workspace to automate lighting, fan speed, and posture reminders using sensor data. Integrated embedded C++ logic with real-time environmental monitoring for enhanced productivity.",
-        "image": "/akshaya.png",
-        "url": "https://github.com/Bhargi777/Personalized-Workspace-Environment-using-Arduino"
-      },
-      {
-        "title": "Food Delivery Application (Console-Based)",
-        "about": "Designed a Java-based food delivery system with optimized menu search using segment trees. Implemented role-based access for customers and administrators using OOP principles.",
-        "image": "/devdump.png",
-        "url": "https://github.com/Bhargi777/Food-Delivery-App"
-      },
-      {
-        "title": "INIT Club Website",
-        "about": "Developed and maintained the official INIT Club website using HTML, CSS, and TypeScript. Collaborated with the core team to publish events, updates, and announcements for the community.",
-        "image": "/furnace.png",
-        "url": "https://github.com/Bhargi777/Init-Website"
-      },
-      {
-        "title": "NSS Attendance & Certificate Management System",
-        "about": "Built web-based tools to manage NSS attendance records and digital certificate distribution. Streamlined volunteer management and documentation processes for large-scale outreach programs.",
-        "image": "/leegit.png",
-        "url": "https://github.com/Bhargi777/NSS-Certificates"
-      },
-      {
-        "title": "46th Inter-District Athletic Meet",
-        "about": "Managed volunteers, logistics, and budgeting for a three-day inter-district athletic event. Coordinated multiple departments and successfully executed a large-scale institutional event with 500+ participants.",
-        "image": "/byte.png",
-        "url": ""
-      }
-    ]
+    "projects": []
   },
   "testimonials": {
     "testimonials": []
