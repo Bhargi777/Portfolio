@@ -1,37 +1,46 @@
 # Bhargava-Portfolio
 
-A modern, ASCII art-themed portfolio website built with Next.js, React, and TypeScript. Features a sleek black background with vibrant magenta accents, showcasing projects, skills, and professional experience.
+A modern, ASCII art-themed portfolio website built with Next.js, React, and TypeScript. Features an elegant dark theme with vibrant magenta accents, dynamic GitHub project integration, and smooth animations.
 
-## 🎨 Features
+## Overview
 
-- **ASCII Art Header** - Eye-catching animated ASCII art display of name
-- **Dark Theme** - Black background with white text and magenta accents
-- **Responsive Design** - Mobile-friendly layout that works on all devices
-- **Project Showcase** - Highlight your best projects with descriptions and links
-- **Skill Display** - Interactive skill bars showing proficiency levels
-- **Experience Section** - Display work history and organizational roles
-- **Education** - Academic background and achievements
-- **Contact Links** - Social media and direct contact information
-- **Smooth Animations** - Scan lines and visual effects for enhanced aesthetics
+This portfolio serves as a dynamic, fully customizable platform to showcase professional work, experiences, skills, and education. Projects are automatically fetched from GitHub API, ensuring your portfolio always stays up-to-date with your latest repositories.
 
-## 🚀 Tech Stack
+## Features
+
+- **ASCII Art Hero Section** - Animated ASCII art display with matrix text effects
+- **Dynamic GitHub Integration** - Auto-sync projects directly from GitHub repositories
+- **Responsive Design** - Fully mobile-friendly with adaptive layouts
+- **Dark Theme with Accent Colors** - Black background with white text and vibrant magenta highlights
+- **Multiple Pages** - Home, About, Projects, and Contact sections
+- **Smooth Animations** - Scan lines, matrix effects, and transition animations
+- **Interactive Elements** - Hover effects, animated buttons, and transitions
+- **Accessible Components** - Built with Radix UI for best accessibility practices
+- **Performance Optimized** - Vercel Analytics integration and optimizations
+- **Theme Toggle** - Light/Dark mode support
+
+## Tech Stack
 
 - **Framework**: Next.js 16.1.0
 - **UI Library**: React 19.2.0
-- **Styling**: Tailwind CSS 4.1.9
-- **Components**: Radix UI (40+ accessible components)
 - **Language**: TypeScript
-- **Forms**: React Hook Form + Zod
+- **Styling**: Tailwind CSS 4.1.9
+- **Component Library**: Radix UI (40+ accessible components)
+- **Forms**: React Hook Form + Zod validation
 - **Icons**: Lucide React
-- **Font**: JetBrains Mono
+- **Animations**: Framer Motion
+- **Typography**: JetBrains Mono font
 - **Analytics**: Vercel Analytics
+- **API Integration**: GitHub REST API
 
-## 📋 Prerequisites
+## Prerequisites
 
-- Node.js 18+ 
-- npm or yarn
+- Node.js 18 or higher
+- npm or yarn package manager
+- Git (for cloning and deployment)
+- GitHub account (optional, for fetching your projects)
 
-## 🔧 Installation & Setup
+## Installation & Setup
 
 1. **Clone the repository**
    ```bash
@@ -43,49 +52,125 @@ A modern, ASCII art-themed portfolio website built with Next.js, React, and Type
    ```bash
    npm install --legacy-peer-deps
    ```
+   The `--legacy-peer-deps` flag is required due to React 19.2.0 compatibility with older Radix UI packages.
 
 3. **Configure your portfolio data**
    - Edit `/public/resumeData.json` with your personal information:
-     - Personal details (name, email, phone, location)
-     - Education
-     - Work experience
-     - Projects
-     - Skills
-     - Social links
+     - **main**: Name, bio, occupation, email, location, social links
+     - **resume**: Education, work experience, technical skills
+     - **portfolio**: Fallback projects (optional, GitHub API takes precedence)
 
-4. **Start the development server**
+4. **Update avatar (optional)**
+   - Place your profile picture as `/public/profile.jpg`
+   - The site will show a placeholder if missing
+
+5. **Start the development server**
    ```bash
    npm run dev
    ```
+   Open [http://localhost:3000](http://localhost:3000) in your browser
 
-5. **Open in browser**
-   - Navigate to `http://localhost:3000`
+## Configuration
 
-## 📝 Configuration
+### Resume Data
+Edit `/public/resumeData.json` to customize your portfolio:
 
-### Update Resume Data
-Edit `/public/resumeData.json` to customize:
-- **main**: Personal info, bio, contact details, social links
-- **resume**: Education, work experience, skills
-- **portfolio**: Featured projects with descriptions and links
-
-### Customize Header
-Edit `/components/hero.tsx` to change the ASCII art header:
-```tsx
-<pre className="text-[10px] sm:text-xs md:text-sm lg:text-base neon-text">
-  {`
-  [Your ASCII art here]
-  `}
-</pre>
+```json
+{
+  "main": {
+    "name": "Your Name",
+    "occupation": "Your Title",
+    "bio": "Your bio/about text",
+    "email": "your.email@example.com",
+    "address": { "city": "City", "state": "State" },
+    "website": "https://yourwebsite.com",
+    "social": [
+      { "name": "github", "url": "https://github.com/yourname" },
+      { "name": "linkedin", "url": "https://linkedin.com/in/yourname" }
+    ]
+  },
+  "resume": {
+    "education": [...],
+    "work": [...],
+    "skills": [...]
+  }
+}
 ```
 
-### Theme Colors
-Colors are defined in `/app/globals.css` using OKLCH color space:
-- **Background**: `oklch(0.08 0.01 264)` (Near black)
-- **Foreground**: `oklch(0.95 0.005 264)` (White)
-- **Accent**: `oklch(0.65 0.2 310)` (Magenta)
+### GitHub Projects Integration
 
-## 📦 Build & Deploy
+Projects are fetched from your GitHub repositories automatically. The site:
+- Fetches all public repositories from your GitHub account
+- Filters out forks and repos without descriptions
+- Sorts by star count and update date
+- Caches results in session storage to avoid API rate limits
+
+To use a custom GitHub username, edit the API endpoint in `/components/projects.tsx`:
+```tsx
+const res = await fetch("https://api.github.com/users/YOUR_USERNAME/repos?per_page=100")
+```
+
+### Customize ASCII Art Header
+
+Edit `/components/hero.tsx` to change the ASCII art display or add your own custom art.
+
+### Theme Colors
+
+Colors use OKLCH color space and are defined in `/app/globals.css`:
+- **Primary/Background**: `oklch(0.08 0.01 264)` - Near black
+- **Foreground**: `oklch(0.95 0.005 264)` - White
+- **Accent**: `oklch(0.65 0.2 310)` - Magenta
+
+Modify these values to customize the color scheme.
+
+## Project Structure
+
+```
+├── app/
+│   ├── layout.tsx          # Root layout with metadata
+│   ├── page.tsx            # Home page
+│   ├── globals.css         # Global styles and color variables
+│   ├── about/
+│   │   └── page.tsx        # About page
+│   ├── projects/
+│   │   └── page.tsx        # Projects page
+│   └── contact/
+│       └── page.tsx        # Contact page
+├── components/
+│   ├── hero.tsx            # Hero section with ASCII art
+│   ├── about.tsx           # About section
+│   ├── experience.tsx      # Work experience
+│   ├── projects.tsx        # Projects with GitHub sync
+│   ├── skills.tsx          # Skills display
+│   ├── education.tsx       # Education section
+│   ├── contact.tsx         # Contact section
+│   ├── footer.tsx          # Footer
+│   ├── navbar.tsx          # Navigation bar
+│   ├── matrix-text.tsx     # Matrix text effect component
+│   ├── loading-screen.tsx  # Loading screen
+│   ├── theme-provider.tsx  # Theme management
+│   ├── theme-toggle.tsx    # Light/Dark mode toggle
+│   └── ui/                 # Radix UI component library
+├── hooks/
+│   ├── use-mobile.ts       # Mobile detection hook
+│   └── use-toast.ts        # Toast notification hook
+├── lib/
+│   └── utils.ts            # Utility functions
+├── public/
+│   ├── resumeData.json     # Portfolio content
+│   ├── profile.jpg         # Profile picture (optional)
+│   └── Bhargava_Resume.pdf # Resume download
+├── styles/                 # CSS modules
+├── package.json
+├── tsconfig.json
+├── next.config.mjs
+├── tailwind.config.ts
+├── postcss.config.mjs
+├── .npmrc                  # npm configuration
+└── components.json         # Component metadata
+```
+
+## Building & Deployment
 
 ### Local Build
 ```bash
@@ -94,85 +179,104 @@ npm start
 ```
 
 ### Deploy to Vercel
+The easiest way to deploy is to push to GitHub and connect with Vercel:
+
 1. Push your code to GitHub
-2. Import the repository in [Vercel Dashboard](https://vercel.com)
-3. Vercel will automatically detect Next.js and build
-4. Your portfolio will be live at a Vercel URL
+2. Go to [Vercel Dashboard](https://vercel.com)
+3. Click "New Project" and import your GitHub repository
+4. Vercel automatically detects it's a Next.js project
+5. Click "Deploy" - your portfolio will be live!
 
-**Note**: The project uses `.npmrc` with `legacy-peer-deps=true` to handle React 19.2.0 compatibility with older Radix UI packages.
+Vercel provides:
+- Automatic deployments on every push
+- Custom domain support
+- SSL certificates
+- Analytics integration
+- Serverless functions support
 
-## 📁 Project Structure
+## Available Scripts
 
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Run production server
+- `npm run lint` - Run ESLint
+
+## Pages & Routes
+
+- `/` - Home page with hero section
+- `/about` - Full about section with biography and contact info
+- `/projects` - Projects showcase (GitHub-synced)
+- `/contact` - Contact form and information
+
+## Performance Notes
+
+- GitHub repos are cached in session storage to avoid API rate limits
+- Lazy-loaded components for optimal performance
+- Optimized images with next/image
+- CSS optimizations with Tailwind CSS
+
+## Customization Guide
+
+### Adding Social Links
+Edit the `social` array in `/public/resumeData.json`:
+```json
+"social": [
+  { "name": "github", "url": "https://github.com/yourname" },
+  { "name": "linkedin", "url": "https://linkedin.com/in/yourname" },
+  { "name": "twitter", "url": "https://twitter.com/yourhandle" }
+]
 ```
-├── app/
-│   ├── globals.css          # Global styles and color variables
-│   ├── layout.tsx           # Root layout with metadata
-│   └── page.tsx             # Main page component
-├── components/
-│   ├── hero.tsx             # ASCII header section
-│   ├── about.tsx            # Bio and introduction
-│   ├── experience.tsx       # Work experience
-│   ├── projects.tsx         # Project showcase
-│   ├── skills.tsx           # Skills display
-│   ├── education.tsx        # Education section
-│   ├── contact.tsx          # Contact section
-│   ├── footer.tsx           # Footer
-│   ├── theme-provider.tsx   # Theme management
-│   └── ui/                  # Radix UI components
-├── hooks/                   # Custom React hooks
-├── lib/                     # Utility functions
-├── public/
-│   └── resumeData.json      # Portfolio content (EDIT THIS!)
-├── styles/                  # Component styles
-├── package.json
-├── tsconfig.json
-├── next.config.mjs
-├── tailwind.config.ts
-├── postcss.config.mjs
-└── .npmrc                   # npm configuration for legacy peer deps
+
+### Adding Skills
+Edit the `skills` array in `/public/resumeData.json`:
+```json
+"skills": [
+  { "name": "JavaScript", "level": "95%" },
+  { "name": "React", "level": "90%" }
+]
 ```
 
-## 🎯 Key Sections
+### Adding Work Experience
+Edit the `work` array in `/public/resumeData.json`:
+```json
+"work": [
+  {
+    "company": "Company Name",
+    "title": "Your Title",
+    "years": "2024 - Present"
+  }
+]
+```
 
-### Hero Section
-ASCII art header with name and occupation title
+## Browser Support
 
-### About Section
-Bio, contact information, and social media links
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
 
-### Experience Section
-Work experience and organizational roles with dates
-
-### Projects Section
-Featured projects with descriptions, images, and GitHub links
-
-### Skills Section
-Technical skills with proficiency level bars
-
-### Education Section
-Academic background and credentials
-
-### Contact Section
-Email and social media links for easy connection
-
-## 🌐 Environment Variables
-
-No additional environment variables needed for basic functionality. Vercel Analytics will automatically collect data if connected.
-
-## 📄 License
+## License
 
 This project is open source and available under the MIT License.
 
-## 🤝 Contributing
+## Contributing
 
-Feel free to fork this repository and customize it for your own portfolio!
+Feel free to fork this repository and customize it for your own portfolio! If you have improvements or bug fixes, pull requests are welcome.
 
-## 📞 Contact
+## Support & Issues
 
-- **Email**: bhargavasrisai7@gmail.com
-- **GitHub**: [Bhargi777](https://github.com/Bhargi777)
-- **LinkedIn**: [Bhargava Sri Sai M K](https://www.linkedin.com/in/bhargava-sri-sai-m-k-79b574341)
+If you encounter any issues or have questions:
+- Check existing GitHub issues
+- Create a new issue with detailed description
+- Include error messages and steps to reproduce
+
+## Contact
+
+- Email: bhargi07@icloud.com
+- GitHub: [Bhargi777](https://github.com/Bhargi777)
+- LinkedIn: [Bhargava Sri Sai M K](https://www.linkedin.com/in/bhargava-sri-sai-m-k-79b574341)
+- Portfolio: [bhargi.vercel.app](https://bhargi.vercel.app)
 
 ---
 
-**Made with ❤️ by Bhargava Sri Sai M K**
+Built with passion by Bhargava Sri Sai M K
