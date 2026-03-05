@@ -2,6 +2,8 @@
   "main": {
     "name": "Bhargava Sri Sai M K",
     "occupation": "Computer Science Undergraduate & Tech Enthusiast",
+    "description": "",
+    "image": "profilepic.jpg",
     "bio": "I'm a Computer Science undergraduate with hands-on experience in software development, embedded systems, and NLP-driven applications. I enjoy building practical, real-world solutions that bridge theory and implementation, whether through software systems or hardware-integrated projects. Beyond technical work, I've taken active roles in organizing and leading large-scale institutional initiatives, developing strong skills in leadership, collaboration, and execution. I'm driven by curiosity, continuous learning, and the desire to create meaningful technology that solves real problems.",
     "contactmessage": "Let's build something amazing together!",
     "email": "bhargi07@icloud.com",
@@ -10,6 +12,7 @@
       "state": "Andhra Pradesh"
     },
     "website": "https://bhargi.vercel.app",
+    "resumedownload": "",
     "social": [
       {
         "name": "linkedin",
@@ -21,7 +24,8 @@
         "url": "https://github.com/Bhargi777",
         "className": "fa fa-github"
       }
-    ]
+    ],
+    "profiles": []
   },
   "resume": {
     "skillmessage": "My Technical Arsenal",
@@ -96,12 +100,18 @@
       },
       {
         "name": "Arduino & IoT",
-        "level": "82%
+        "level": "82%"
       },
       {
         "name": "HTML & CSS",
         "level": "85%"
       }
     ]
+  },
+  "portfolio": {
+    "projects": []
+  },
+  "testimonials": {
+    "testimonials": []
   }
 }
