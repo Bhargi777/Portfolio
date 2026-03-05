@@ -4,7 +4,6 @@ interface AboutProps {
   data: {
     bio: string
     email: string
-    phone: string
     social: Array<{
       name: string
       url: string
@@ -41,19 +40,15 @@ export default function About({ data }: AboutProps) {
           </div>
 
           <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-border/50 relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 font-mono text-[10px] md:text-[13px]">
+            <div className="grid grid-cols-1 gap-4 md:gap-6 font-mono text-[10px] md:text-[13px]">
               <div className="flex flex-col gap-1 border border-border/30 bg-background/30 p-4 hover:border-accent/40 transition-colors">
-                <span className="text-accent uppercase tracking-widest text-[9px] md:text-[10px] mb-1 jus">Email</span>{" "}
+                <span className="text-accent uppercase tracking-widest text-[9px] md:text-[10px] mb-1">Email</span>{" "}
                 <a
                   href={`mailto:${data.email}`}
                   className="text-foreground hover:text-accent transition-colors break-all"
                 >
                   {data.email}
                 </a>
-              </div>
-              <div className="flex flex-col gap-1 border border-border/30 bg-background/30 p-4 hover:border-accent/40 transition-colors">
-                <span className="text-accent uppercase tracking-widest text-[9px] md:text-[10px] mb-1">Phone</span>
-                <a href={`tel:${data.phone}`} className="text-foreground">{data.phone}</a>
               </div>
             </div>
 
