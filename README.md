@@ -1,6 +1,6 @@
 # Bhargava-Portfolio
 
-A modern, ASCII art-themed portfolio website built with Next.js, React, and TypeScript. Features an elegant dark theme with vibrant magenta accents, dynamic GitHub project integration, and smooth animations.
+A modern, ASCII art-themed portfolio website built with Next.js, React, and TypeScript. Features an elegant light theme by default with vibrant magenta accents, dynamic GitHub project integration, and smooth animations.
 
 ## Overview
 
@@ -11,7 +11,7 @@ This portfolio serves as a dynamic, fully customizable platform to showcase prof
 - **ASCII Art Hero Section** - Animated ASCII art display with matrix text effects
 - **Dynamic GitHub Integration** - Auto-sync projects directly from GitHub repositories
 - **Responsive Design** - Fully mobile-friendly with adaptive layouts
-- **Dark Theme with Accent Colors** - Black background with white text and vibrant magenta highlights
+- **Light and Dark Themes** - Light mode by default with vibrant magenta highlights
 - **Multiple Pages** - Home, About, Projects, and Contact sections
 - **Smooth Animations** - Scan lines, matrix effects, and transition animations
 - **Interactive Elements** - Hover effects, animated buttons, and transitions
