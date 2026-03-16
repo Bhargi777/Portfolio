@@ -135,8 +135,8 @@ export default function Contact({ data }: ContactProps) {
 
             <form onSubmit={handleSubmit} className="relative z-10 bg-card/80 backdrop-blur-md border border-border p-6 font-mono flex flex-col gap-5 shadow-2xl">
               <div className="text-[10px] md:text-xs text-accent/70 pt-1 pb-4 border-b border-border/50 flex justify-between">
-                <span>NEW_TRANSMISSION.TXT</span>
-                <span className="animate-pulse">[INPUT_REQUIRED]</span>
+                <span>New Message</span>
+                <span className="animate-pulse">[Inuput required]</span>
               </div>
 
               <div className="space-y-4 flex-grow">
@@ -147,7 +147,7 @@ export default function Contact({ data }: ContactProps) {
                     name="name"
                     required
                     type="text"
-                    placeholder="IDENTIFIER (Name)"
+                    placeholder="Name"
                     className="w-full bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder:text-muted-foreground/50"
                   />
                 </div>
@@ -158,7 +158,7 @@ export default function Contact({ data }: ContactProps) {
                     name="email"
                     required
                     type="email"
-                    placeholder="ROUTING_ADDRESS (Email)"
+                    placeholder="Email"
                     className="w-full bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder:text-muted-foreground/50"
                   />
                 </div>
@@ -169,7 +169,7 @@ export default function Contact({ data }: ContactProps) {
                     name="message"
                     required
                     rows={5}
-                    placeholder="PAYLOAD (Message body...)"
+                    placeholder="Message"
                     className="w-full bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all resize-none placeholder:text-muted-foreground/50"
                   ></textarea>
                 </div>
@@ -183,16 +183,16 @@ export default function Contact({ data }: ContactProps) {
                 {isSubmitting ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin text-background" />
-                    <span className="text-background">Transmitting...</span>
+                    <span className="text-background">Sending</span>
                   </>
                 ) : isSuccess ? (
                   <>
                     <CheckCircle2 className="w-4 h-4 animate-in zoom-in duration-300 text-background" />
-                    <span className="text-background">Payload Delivered</span>
+                    <span className="text-background">Sent</span>
                   </>
                 ) : (
                   <>
-                    <span className="text-background">Execute Send</span>
+                    <span className="text-background">Send</span>
                     <Send className="w-4 h-4 text-background group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
                   </>
                 )}
