@@ -1,6 +1,6 @@
 import Hero from "@/components/hero"
 import Footer from "@/components/footer"
-import resumeData from "../../public/resumeData.json"
+import resumeData from "@/public/resumeData.json"
 import { FullResumeData } from "@/types"
 
 export default function Page() {
