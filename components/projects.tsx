@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect, useState } from "react"
 import { Star, Code, Loader2 } from "lucide-react"
 import { MatrixText } from "./matrix-text"
