@@ -1,24 +1,13 @@
-"use client"
-
-import { useEffect, useState } from "react"
-import { LoadingScreen } from "@/components/loading-screen"
 import About from "@/components/about"
 import Experience from "@/components/experience"
 import Skills from "@/components/skills"
 import Education from "@/components/education"
 import Footer from "@/components/footer"
+import resumeData from "../../public/resumeData.json"
+import { FullResumeData } from "@/types"
 
 export default function AboutPage() {
-    const [data, setData] = useState<any>(null)
-
-    useEffect(() => {
-        fetch("/resumeData.json")
-            .then((res) => res.json())
-            .then((json) => setData(json))
-            .catch((err) => console.error(err))
-    }, [])
-
-    if (!data) return <LoadingScreen />
+    const data = resumeData as FullResumeData
 
     return (
         <main className="min-h-screen bg-transparent flex flex-col justify-between">
