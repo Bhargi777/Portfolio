@@ -1,5 +1,10 @@
+"use client"
+
+import { useState } from "react"
 import { MatrixText } from "./matrix-text"
 import { Github, Linkedin } from "lucide-react"
+import Link from "next/link"
+import Image from "next/image"
 
 const MediumIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -25,6 +30,8 @@ interface HeroProps {
 }
 
 export default function Hero({ data }: HeroProps) {
+  const [imgError, setImgError] = useState(false)
+
   return (
     <section className="container mx-auto px-4 py-8 md:py-16 lg:py-24 relative scan-line animate-in fade-in duration-1000">
       <div className="flex flex-col items-center justify-center gap-6 md:gap-10">
@@ -36,15 +43,23 @@ export default function Hero({ data }: HeroProps) {
                 
                 {/* Image mask */}
                 <div className="relative w-full h-full rounded-full overflow-hidden border border-accent/60 group-hover:border-accent transition-colors duration-500 shadow-[0_0_20px_rgba(var(--accent),0.2)] group-hover:shadow-[0_0_40px_rgba(var(--accent),0.4)]">
-                    <img 
-                      src="/profile.jpg" 
-                      alt="Bhargava" 
-                      className="w-full h-full object-cover bg-accent/5 backdrop-blur-sm grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110" 
-                      onError={(e) => { 
-                         e.currentTarget.style.display = 'none';
-                         e.currentTarget.parentElement?.insertAdjacentHTML('beforeend', '<div class="absolute inset-0 flex flex-col items-center justify-center text-accent/50 text-[10px] text-center font-mono"><span>[AVATAR_NOT_FOUND]</span><span class="opacity-50 mt-1">Place profile.jpg</span><span class="opacity-50">in public dir</span></div>');
-                      }}
-                    />
+                    {!imgError ? (
+                      <Image 
+                        src="/profile.jpg" 
+                        alt="Bhargava" 
+                        fill
+                        className="object-cover bg-accent/5 backdrop-blur-sm grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110" 
+                        onError={() => setImgError(true)}
+                        sizes="(max-width: 768px) 160px, 224px"
+                        priority
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex flex-col items-center justify-center text-accent/50 text-[10px] text-center font-mono">
+                        <span>[AVATAR_NOT_FOUND]</span>
+                        <span className="opacity-50 mt-1">Place profile.jpg</span>
+                        <span className="opacity-50">in public dir</span>
+                      </div>
+                    )}
                 </div>
                 
             </div>
@@ -62,13 +77,13 @@ export default function Hero({ data }: HeroProps) {
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-6 mt-8 animate-in slide-in-from-bottom-4 duration-1000 delay-500 fill-mode-both">
-            <a
+            <Link
               href="/about"
               className="group relative inline-flex items-center gap-3 font-mono text-xs md:text-sm bg-accent text-accent-foreground px-8 py-3 uppercase tracking-widest hover:bg-accent/90 transition-all shadow-lg active:scale-95 duration-300"
             >
               <span className="relative z-10 font-bold">Wanna know more??</span>
               <div className="absolute inset-0 border border-current scale-[1.03] opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300" />
-            </a>
+            </Link>
           </div>
 
           <div className="flex justify-center items-center gap-6 mt-10 animate-in slide-in-from-bottom-8 duration-1000 delay-700 fill-mode-both">
