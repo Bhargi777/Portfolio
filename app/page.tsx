@@ -1,41 +1,10 @@
-"use client"
-
-import { useEffect, useState } from "react"
-import { Loader2 } from "lucide-react"
 import Hero from "@/components/hero"
-import About from "@/components/about"
-import Experience from "@/components/experience"
-import Projects from "@/components/projects"
-import Skills from "@/components/skills"
-import Education from "@/components/education"
-import Contact from "@/components/contact"
 import Footer from "@/components/footer"
-
-import { LoadingScreen } from "@/components/loading-screen"
-
-interface ResumeData {
-  main: any
-  resume: any
-  portfolio: any
-}
+import resumeData from "../../public/resumeData.json"
+import { FullResumeData } from "@/types"
 
 export default function Page() {
-  const [data, setData] = useState<ResumeData | null>(null)
-
-  useEffect(() => {
-    fetch("/resumeData.json")
-      .then((res) => res.json())
-      .then((json) => {
-        setTimeout(() => {
-            setData(json)
-        }, 1200)
-      })
-      .catch((err) => console.error("[v0] Failed to load resume data:", err))
-  }, [])
-
-  if (!data) {
-    return <LoadingScreen />
-  }
+  const data = resumeData as FullResumeData
 
   return (
     <main className="min-h-screen bg-transparent flex flex-col justify-between">
