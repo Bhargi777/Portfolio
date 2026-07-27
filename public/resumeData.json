@@ -1,10 +1,10 @@
 {
   "main": {
     "name": "Bhargava Sri Sai M K",
-    "occupation": "Computer Science Undergraduate & Tech Enthusiast",
+    "occupation": "Backend & AI/ML Engineer in the Making",
     "description": "",
     "image": "profilepic.jpg",
-    "bio": "I'm a Computer Science undergraduate with hands-on experience in software development, embedded systems, and NLP-driven applications. I enjoy building practical, real-world solutions that bridge theory and implementation, whether through software systems or hardware-integrated projects. Beyond technical work, I've taken active roles in organizing and leading large-scale institutional initiatives, developing strong skills in leadership, collaboration, and execution. I'm driven by curiosity, continuous learning, and the desire to create meaningful technology that solves real problems.",
+    "bio": "I'm a Computer Science undergraduate specializing in backend engineering, distributed systems, and applied machine learning. I've shipped cloud-native microservices, high-performance Rust networking software, RAG pipelines, and real-time computer vision systems across 30+ open-source repos. Beyond code, I've taken active roles in organizing and leading large-scale institutional initiatives, developing strong skills in leadership, collaboration, and execution. I'm driven by curiosity, continuous learning, and the desire to create meaningful technology that solves real problems.",
     "contactmessage": "Let's build something amazing together!",
     "email": "bhargi07@icloud.com",
     "address": {
@@ -76,35 +76,63 @@
     "skills": [
       {
         "name": "Python",
-        "level": "90%"
+        "level": "92%"
       },
       {
-        "name": "Java",
-        "level": "85%"
-      },
-      {
-        "name": "TypeScript & JavaScript",
-        "level": "85%"
-      },
-      {
-        "name": "Embedded C++",
+        "name": "Rust",
         "level": "80%"
       },
       {
-        "name": "NLP & Transformer Models",
-        "level": "85%"
-      },
-      {
-        "name": "RESTful APIs",
+        "name": "TypeScript & JavaScript",
         "level": "88%"
       },
       {
-        "name": "Arduino & IoT",
+        "name": "Java & C++",
         "level": "82%"
       },
       {
-        "name": "HTML & CSS",
+        "name": "FastAPI & Node.js",
+        "level": "88%"
+      },
+      {
+        "name": "Axum, Tokio & Hyper",
+        "level": "78%"
+      },
+      {
+        "name": "REST APIs & Microservices",
+        "level": "90%"
+      },
+      {
+        "name": "Next.js & React",
+        "level": "88%"
+      },
+      {
+        "name": "Retrieval-Augmented Generation",
         "level": "85%"
+      },
+      {
+        "name": "LangChain & Vector DBs",
+        "level": "80%"
+      },
+      {
+        "name": "OpenCV & MediaPipe",
+        "level": "82%"
+      },
+      {
+        "name": "YOLOv8 & Computer Vision",
+        "level": "80%"
+      },
+      {
+        "name": "PostgreSQL & Supabase",
+        "level": "85%"
+      },
+      {
+        "name": "Docker & CI/CD",
+        "level": "82%"
+      },
+      {
+        "name": "ROS 2 & Gazebo",
+        "level": "70%"
       }
     ]
   },
