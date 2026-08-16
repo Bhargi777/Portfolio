@@ -136,7 +136,7 @@ export default function Contact({ data }: ContactProps) {
             <form onSubmit={handleSubmit} className="relative z-10 bg-card/80 backdrop-blur-md border border-border p-6 font-mono flex flex-col gap-5 shadow-2xl">
               <div className="text-[10px] md:text-xs text-accent/70 pt-1 pb-4 border-b border-border/50 flex justify-between">
                 <span>New Message</span>
-                <span className="animate-pulse">[Inuput required]</span>
+                <span className="animate-pulse">[Input required]</span>
               </div>
 
               <div className="space-y-4 flex-grow">
